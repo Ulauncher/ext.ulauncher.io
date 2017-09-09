@@ -1,0 +1,3 @@
+export const AUTH0_SET_SESSION = 'AUTH0_SET_SESSION'
+export const AUTH0_LOGIN = 'AUTH0_LOGIN'
+export const AUTH0_LOGOUT = 'AUTH0_LOGOUT'

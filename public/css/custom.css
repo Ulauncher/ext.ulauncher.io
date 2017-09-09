@@ -1,0 +1,74 @@
+.product-imitation{
+  padding: 0px;
+}
+.product-imitation img{
+  max-width: 100%;
+}
+
+.wizard > .content > .body{
+    position: relative;
+}
+form .btn{
+    margin-right: 5px;
+}
+.wizard > .steps {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.wizard ul{
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+.wizard .steps ul li{
+    width: 25%;
+    float: left;
+}
+.wizard .steps ul li .item{
+    background: #eee;
+    color: #aaa;
+    cursor: default;
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 8px;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.wizard .steps ul li.current .item{
+    background: #1AB394;
+    color: #fff;
+}
+.wizard .steps ul li.done .item{
+    background: #6fd1bd;
+    color: #fff;
+}
+.wizard > .content {
+    background: #eee;
+    display: block;
+    margin: 5px 5px 10px 5px;
+    min-height: 120px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.images-wrapp{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.prev-img{
+    max-width: 20%;
+    margin-right: 10px;
+    margin-top: 10px;
+    float: left;
+}
+.prev-img img{
+    max-width: 100%;
+}
