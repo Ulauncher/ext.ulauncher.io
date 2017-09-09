@@ -1,0 +1,4 @@
+.idea
+ext.ulauncher.io.iml
+node_modules
+src/.env
