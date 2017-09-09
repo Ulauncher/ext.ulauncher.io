@@ -7,12 +7,17 @@ AUTH0_DOMAIN=<yourdomain>.auth0.com
 API_ENDPOINT=<api.endpoint>
 ``` 
 
-2. How to run development server
+2. Install dependencies
+```
+npm install
+```
+
+## How to run development server
 ```
 npm run-script dev
 ```
 
-3. How to build app
+## How to build app
 ```
 NODE_ENV=production npm run-script webpack
 ```
