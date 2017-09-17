@@ -33,8 +33,8 @@ class AddExtension extends React.Component {
 
         <UserIsLoggedIn inverse>
           <IboxContent title="You are not logged in">
-            <i className="fa fa-info-circle" />&nbsp;Please <AuthLink login>log in or sign up</AuthLink> with your
-            Github account in order to submit extensions.
+            <i className="fa fa-info-circle" />&nbsp;Please <AuthLink login>log in</AuthLink> with your Github or Google
+            account in order to submit extensions.
           </IboxContent>
         </UserIsLoggedIn>
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import Navigation from './Navigation'
+import './custom.css'
 
 class Layout extends React.Component {
   render() {
@@ -9,9 +10,12 @@ class Layout extends React.Component {
       <div id="wrapper">
         <div id="page-wrapper" className="gray-bg">
           <Helmet>
-            <body className="top-navigation" />
+            <body className="top-navigation body-small" />
           </Helmet>
-          <Navigation />
+
+          <div className="row border-bottom white-bg">
+            <Navigation />
+          </div>
 
           <div className="wrapper wrapper-content">
             <div className="container">{this.props.children}</div>

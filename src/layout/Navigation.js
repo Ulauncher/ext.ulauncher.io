@@ -2,75 +2,67 @@ import React from 'react'
 import AuthLink from '../auth0/AuthLink'
 import UserIsLoggedIn from '../auth0/UserIsLoggedIn'
 import { Link } from 'react-router-dom'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import NavLink from '../react/NavLink'
 import logo from './ulauncher.png'
 
 export default class Navigation extends React.Component {
   render() {
+    // this is to get rid of a warning about unknown props that shows up when using <li> inside Nav
+    const Li = ({ children }) => <li>{children}</li>
+
     const browse = (
       <NavLink exact to="/">
         Browse
       </NavLink>
     )
-    const docs = (
-      <li>
-        <a href="http://docs.ulauncher.io">API Docs</a>
-      </li>
-    )
-    const ulauncher = (
-      <li>
-        <a href="https://ulauncher.io">Ulauncher App</a>
-      </li>
-    )
+    const submitNew = <NavLink to="/new">Submit New</NavLink>
+    const docs = <NavItem href="http://docs.ulauncher.io">API Docs</NavItem>
+    const ulauncher = <NavItem href="https://ulauncher.io">Ulauncher App</NavItem>
 
     return (
-      <div className="row border-bottom white-bg">
-        <div className="navbar navbar-static-top" role="navigation">
-          <div className="navbar-header">
-            <Link to="/" className="navbar-brand text-nowrap">
+      <Navbar fluid>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">
               <img src={logo} height="20" alt="Ulauncher" /> Extensions
             </Link>
-          </div>
-          <div className="navbar-collapse collapse" id="navbar">
-            <UserIsLoggedIn>
-              <div>
-                <ul className="nav navbar-nav navbar-left">
-                  {browse}
-                  <NavLink to="/new">Submit New</NavLink>
-                  <NavLink to="/my">Your Extensions</NavLink>
-                  {docs}
-                  {ulauncher}
-                </ul>
-                <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <AuthLink>
-                      <i className="fa fa-sign-out" /> Log Out
-                    </AuthLink>
-                  </li>
-                </ul>
-              </div>
-            </UserIsLoggedIn>
+          </Navbar.Brand>
+          <Navbar.Toggle>
+            <i className="fa fa-reorder" />
+          </Navbar.Toggle>
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <UserIsLoggedIn>
+            <Nav>
+              {browse}
+              {submitNew}
+              <NavLink to="/my">Your Extensions</NavLink>
+              {docs}
+              {ulauncher}
+            </Nav>
+            <Nav pullRight>
+              <Li>
+                <AuthLink>Log Out</AuthLink>
+              </Li>
+            </Nav>
+          </UserIsLoggedIn>
 
-            <UserIsLoggedIn inverse>
-              <div>
-                <ul className="nav navbar-nav navbar-left">
-                  {browse}
-                  <NavLink to="/new">Submit New</NavLink>
-                  {docs}
-                  {ulauncher}
-                </ul>
-                <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <AuthLink login>
-                      <i className="fa fa-sign-in" /> Log In
-                    </AuthLink>
-                  </li>
-                </ul>
-              </div>
-            </UserIsLoggedIn>
-          </div>
-        </div>
-      </div>
+          <UserIsLoggedIn inverse>
+            <Nav>
+              {browse}
+              {submitNew}
+              {docs}
+              {ulauncher}
+            </Nav>
+            <Nav pullRight>
+              <Li>
+                <AuthLink login>Log In</AuthLink>
+              </Li>
+            </Nav>
+          </UserIsLoggedIn>
+        </Navbar.Collapse>
+      </Navbar>
     )
   }
 }

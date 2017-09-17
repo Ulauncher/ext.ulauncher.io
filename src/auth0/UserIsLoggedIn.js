@@ -5,7 +5,7 @@ class UserIsLoggedIn extends React.Component {
   render() {
     const { auth0, inverse, elseRenderComponent: ElseComponent } = this.props
     if ((auth0.session && !inverse) || (!auth0.session && inverse)) {
-      return this.props.children
+      return <div>{this.props.children}</div>
     } else if (ElseComponent) {
       return <ElseComponent />
     } else {

@@ -1,14 +1,14 @@
-.product-imitation{
-  padding: 0px;
+.product-imitation {
+    padding: 0px;
 }
-.product-imitation img{
-  max-width: 100%;
+.product-imitation img {
+    max-width: 100%;
 }
 
-.wizard > .content > .body{
+.wizard > .content > .body {
     position: relative;
 }
-form .btn{
+form .btn {
     margin-right: 5px;
 }
 .wizard > .steps {
@@ -16,16 +16,16 @@ form .btn{
     display: block;
     width: 100%;
 }
-.wizard ul{
+.wizard ul {
     list-style: none !important;
     padding: 0;
     margin: 0;
 }
-.wizard .steps ul li{
+.wizard .steps ul li {
     width: 25%;
     float: left;
 }
-.wizard .steps ul li .item{
+.wizard .steps ul li .item {
     background: #eee;
     color: #aaa;
     cursor: default;
@@ -38,11 +38,11 @@ form .btn{
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-.wizard .steps ul li.current .item{
-    background: #1AB394;
+.wizard .steps ul li.current .item {
+    background: #1ab394;
     color: #fff;
 }
-.wizard .steps ul li.done .item{
+.wizard .steps ul li.done .item {
     background: #6fd1bd;
     color: #fff;
 }
@@ -58,17 +58,36 @@ form .btn{
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-.images-wrapp{
+.images-wrapp {
     width: 100%;
     position: relative;
     overflow: hidden;
 }
-.prev-img{
+.prev-img {
     max-width: 20%;
     margin-right: 10px;
     margin-top: 10px;
     float: left;
 }
-.prev-img img{
+.prev-img img {
     max-width: 100%;
+}
+
+
+/**
+ * This is to override styles caused by .navbar-default
+ */
+.top-navigation .navbar-brand {
+    background: #1ab394 !important;
+    color: #fff !important;
+    padding: 15px 25px;
+}
+.navbar-default .navbar-nav > li a {
+    background-color: white !important;
+}
+.navbar-default .navbar-toggle {
+    background-color: #1ab394 !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent !important;
 }
