@@ -4,7 +4,7 @@ import UserIsLoggedIn from '../auth0/UserIsLoggedIn'
 import { Link } from 'react-router-dom'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import NavLink from '../react/NavLink'
-import logo from './ulauncher.png'
+import logo from './images/ulauncher.png'
 
 export default class Navigation extends React.Component {
   render() {
