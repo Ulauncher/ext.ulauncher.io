@@ -1,0 +1,18 @@
+language: python
+services:
+- docker
+script:
+- "./build-utils/build.sh"
+branches:
+  only:
+  - master
+deploy:
+  provider: s3
+  access_key_id: AKIAJ6QX6CRNDOW4UNCA
+  secret_access_key:
+    secure: 0vFstNCwhXvvYB9brTpmhcrqLuDeNMT19djGQgNqVsXPTE9Uo7xO3qtxAQP3nLawmf7j4o0Pz0JMzLb6iIo+R4wCHz/L260DBSdQoWer+4a2nuWFTkW0pvggjJA2+8e50BDIzv/tG740Nqn0Q+5vWXR7+fGwJ6ZdgIm2bUsdv4Sql9qclJoAmymEVgiRMuYAvgQ66LkrG2wOuBUDshyeksdGYbCNGKLgTax/vAYj1APYsvO8FWk1QXANMs3fZFfrq48zAzG/OwcXaDkC3cZhLLHbWC4CChL59pub+XzTgD1WtV6HWN/pksRQFMjsBhfr1vMCPvS8lVWoPDe7l8Qse24+czDKqZlMCVGvTbFK1GhxkXFErAkY0Yt2RDZt/TS/gZwPzgmX3nfIL7AzBgsbsFGhXyN0ZCkFslVVwHP+TOx29M/rHzIowKPfHS+iwXjLmyi2hZsVyEhGomAAvkIF/HbTluwv/h2RartGTaXagPzQ5cPscFtc/j0y1TWgbzdZSzEqQDLzfWqh3ghaziKJWsklgKMEtI1N7Eo81qNOLtdPl9A0YTEDqdj7aopmNf+N65adw2QyRDAKgvpekqGZ+MvAzCusMenCh6dG4zZ1rGc6zbcHmbiCiRahC0P8FoknFkQLQCsQsLMGcKCOzc/zs+3fHB+qZhKGHRUwIKb9jhc=
+  bucket: ext.ulauncher.io
+  region: us-east-2
+  local-dir: build
+  on:
+    repo: Ulauncher/ext.ulauncher.io
