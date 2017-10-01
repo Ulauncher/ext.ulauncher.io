@@ -1,11 +1,6 @@
 language: python
 services:
   - docker
-before_install:
-  - |
-    if [ ! -z "$encrypted_103700d0e85f_key" ]; then
-      openssl aes-256-cbc -K $encrypted_103700d0e85f_key -iv $encrypted_103700d0e85f_iv -in .env.staging.enc -out .env.staging -d
-    fi
 script:
   - ./build-utils/build.sh
 branches:

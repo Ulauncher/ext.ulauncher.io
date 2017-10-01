@@ -8,6 +8,6 @@ docker run \
     -v $(pwd):/root/ulauncher \
     -e NODE_ENV=production \
     -e CI=true \
-    --env-file .env.staging \
+    --env-file .env.prod \
     node:6 \
     bash -c "cd /root/ulauncher && yarn install && yarn test && yarn build"
