@@ -43,7 +43,7 @@ export default class Navigation extends React.Component {
             </Nav>
             <Nav pullRight>
               <Li>
-                <AuthLink>Log Out</AuthLink>
+                <AuthLink type="link">Log Out</AuthLink>
               </Li>
             </Nav>
           </UserIsLoggedIn>
@@ -57,7 +57,7 @@ export default class Navigation extends React.Component {
             </Nav>
             <Nav pullRight>
               <Li>
-                <AuthLink login>Log In</AuthLink>
+                <AuthLink type="link" login>Log In</AuthLink>
               </Li>
             </Nav>
           </UserIsLoggedIn>

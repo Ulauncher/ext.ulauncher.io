@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "auth0-lock": "^10.20.0",
+    "auth0-js": "^8.10.1",
     "bootstrap": "3",
     "classnames": "^2.2.5",
     "copy-to-clipboard": "^3.0.8",

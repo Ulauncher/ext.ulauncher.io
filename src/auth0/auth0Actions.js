@@ -1,12 +1,13 @@
 import * as types from './auth0ActionTypes'
 import authService from './AuthService'
 
-export const handleAuthentication = (hash, history) => {
-  const sessionPromise = authService.parseHash(hash).then(() => {
+export const handleAuthentication = history => {
+  const sessionPromise = authService.handleAuthentication().then(() => {
     history.replace(sessionStorage.getItem('redirectAfterLogIn') || '/')
     sessionStorage.removeItem('redirectAfterLogIn')
     return authService.getSession()
   })
+
   return {
     type: types.AUTH0_SET_SESSION,
     payload: sessionPromise

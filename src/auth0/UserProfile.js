@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-class UserIsLoggedIn extends React.Component {
+class UserProfile extends React.Component {
   render() {
     const { type, auth0 } = this.props
     if (!auth0.session) {
@@ -17,4 +17,4 @@ class UserIsLoggedIn extends React.Component {
   }
 }
 
-export default connect(state => ({ auth0: state.auth0 }))(UserIsLoggedIn)
+export default connect(state => ({ auth0: state.auth0 }))(UserProfile)

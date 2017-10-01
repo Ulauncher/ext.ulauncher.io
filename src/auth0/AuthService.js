@@ -1,62 +1,37 @@
-import Auth0Lock from 'auth0-lock'
-import jwtDecode from 'jwt-decode'
+import auth0Client, { WebAuth } from 'auth0-js'
 
 const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID
 const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN
-const lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
-  auth: {
-    autoParseHash: true,
-    redirectUrl: `${window.location.origin}/auth0-callback`,
-    responseType: 'token',
-    params: { scope: 'openid email user_metadata picture' }
-  }
+const auth0 = new WebAuth({
+  domain: AUTH0_DOMAIN,
+  clientID: AUTH0_CLIENT_ID,
+  redirectUri: `${window.location.origin}/auth0-callback`,
+  audience: `https://${AUTH0_DOMAIN}/userinfo`,
+  responseType: 'token id_token',
+  scope: 'openid'
 })
 const localStorageKey = 'auth0Session'
 
 export class AuthService {
-  constructor(lock) {
-    this.lock = lock
+  constructor(auth0) {
+    this.auth0 = auth0
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
+    this.handleAuthentication = this.handleAuthentication.bind(this)
+    this.isAuthenticated = this.isAuthenticated.bind(this)
   }
 
-  login() {
-    this.lock.show()
-  }
-
-  logout() {
-    localStorage.removeItem(localStorageKey)
-    localStorage.removeItem('profile')
-  }
-
-  getSession() {
-    const sessionJson = localStorage.getItem(localStorageKey)
-    return sessionJson ? JSON.parse(sessionJson) : null
-  }
-
-  getTokenExpirationDate() {
-    const token = this.getToken()
-    const decoded = jwtDecode(token)
-    if (!decoded.exp) {
-      return null
-    }
-
-    const date = new Date(0)
-    date.setUTCSeconds(decoded.exp)
-    return date
-  }
-
-  isTokenExpired() {
-    const token = this.getToken()
-    if (!token) {
-      return true
-    }
-    const date = this.getTokenExpirationDate(token)
-    const offsetSeconds = 0
-    if (!date) {
-      return false
-    }
-    return !(date.valueOf() > new Date().valueOf() + offsetSeconds * 1000)
+  handleAuthentication() {
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          this.setSession(authResult)
+          resolve()
+        } else {
+          reject(err || 'accessToken or/and idToken are missing')
+        }
+      })
+    })
   }
 
   setSession(authResult) {
@@ -74,22 +49,32 @@ export class AuthService {
     localStorage.setItem(localStorageKey, JSON.stringify(session))
   }
 
+  login() {
+    this.auth0.authorize()
+  }
+
+  logout() {
+    localStorage.removeItem(localStorageKey)
+  }
+
+  isAuthenticated() {
+    const session = this.getSession()
+    if (!session) {
+      return false
+    }
+    // Check whether the current time is past the
+    // access token's expiry time
+    return Date.now() < session.expiresAt
+  }
+
+  getSession() {
+    const sessionJson = localStorage.getItem(localStorageKey)
+    return sessionJson ? JSON.parse(sessionJson) : null
+  }
+
   getToken() {
     return (this.getSession() || {}).idToken
   }
-
-  parseHash(hash) {
-    return new Promise((resolve, reject) => {
-      this.lock.resumeAuth(hash, (err, authResult) => {
-        if (err) {
-          return reject(err)
-        }
-
-        this.setSession(authResult)
-        resolve()
-      })
-    })
-  }
 }
 
-export default new AuthService(lock)
+export default new AuthService(auth0, auth0Client)

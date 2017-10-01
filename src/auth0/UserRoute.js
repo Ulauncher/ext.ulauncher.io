@@ -1,12 +1,11 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 export class UserRoute extends React.Component {
   render() {
-    const { component: Component, ...rest } = this.props
-    const isAuthenticated = !!this.props.session
-    return <Route {...rest} render={props => (isAuthenticated ? <Component {...props} /> : <Redirect to="/" />)} />
+    const { auth, unauth, session, ...rest } = this.props
+    return <Route {...rest} component={session ? auth : unauth} />
   }
 }
 

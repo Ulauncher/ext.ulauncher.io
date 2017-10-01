@@ -32,11 +32,7 @@ export function submitExtension(data, history) {
       } else {
         reject({ errors })
       }
-    }).then(() => {
-      return api.submitExtension(data).then(({ data }) => {
-        history.push(`/-/${data.ID}`)
-      })
-    })
+    }).then(() => api.submitExtension(data).then(({ data }) => history.push(`/-/${data.ID}`)))
   }
 }
 
