@@ -33,9 +33,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "analyze": "source-map-explorer build/static/js/main.*",
     "prettier": "prettier --write 'src/**/*.js'"
   },
   "devDependencies": {
-    "prettier": "^1.6.1"
+    "prettier": "^1.6.1",
+    "source-map-explorer": "^1.4.0"
   }
 }

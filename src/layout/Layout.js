@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import Navigation from './Navigation'
+import './css/animate.css'
+import './css/style.css'
+import './css/custom.css'
 
 class Layout extends React.Component {
   render() {

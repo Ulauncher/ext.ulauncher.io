@@ -51,8 +51,6 @@ export function validateExtensionUrl(url) {
       } else {
         resolve()
       }
-    }).then(() => {
-      return api.checkManifest(url)
-    })
+    }).then(() => api.checkManifest(url))
   }
 }
