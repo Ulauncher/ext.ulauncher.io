@@ -20,6 +20,11 @@ export default function ExtensionGrid({ error, isFetching, items, showLoadMore }
     )
   }
 
+  const link = item => ({
+    pathname: `/-/${item.ID}`,
+    state: item
+  })
+
   return (
     <div>
       <div className="row">
@@ -28,13 +33,13 @@ export default function ExtensionGrid({ error, isFetching, items, showLoadMore }
             <div key={item.ID} className="col-md-4">
               <div className="ibox">
                 <div className="ibox-content product-box">
-                  <Link to={`/-/${item.ID}`}>
+                  <Link to={link(item)}>
                     <div className="product-imitation">
                       <img height="200" alt="Screen shot" src={item.Images[0]} />
                     </div>
                   </Link>
                   <div className="product-desc">
-                    <Link className="product-name" to={`/-/${item.ID}`}>
+                    <Link className="product-name" to={link(item)}>
                       {item.Name}
                     </Link>
 

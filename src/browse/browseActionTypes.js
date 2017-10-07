@@ -1,0 +1,2 @@
+export const FETCH_ITEMS = 'BROWSE/FETCH_ITEMS'
+export const RESET_STATE = 'BROWSE/RESET_STATE'

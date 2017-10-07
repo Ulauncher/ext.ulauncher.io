@@ -6,7 +6,9 @@ import Helmet from 'react-helmet'
 import copy from 'copy-to-clipboard'
 import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-bootstrap'
 import Layout from '../layout/Layout'
-import { fetchItem } from './DetailsActions'
+import HttpError from '../error/HttpError'
+import LoadingAnimation from '../layout/LoadingAnimation'
+import { fetchItem, resetState } from './DetailsActions'
 
 class Details extends Component {
   constructor(props) {
@@ -15,24 +17,40 @@ class Details extends Component {
     this.state = {
       urlCopied: false
     }
+    if (!this.getItem()) {
+      this.props.actions.fetchItem(this.props.match.params.id)
+    }
   }
-  componentWillMount() {
-    this.props.actions.fetchItem(this.props.match.params.id)
+
+  getItem() {
+    return this.props.item || this.props.location.state
+  }
+
+  componentWillUnmount() {
+    this.props.actions.resetState()
   }
 
   copyUrl() {
-    copy(this.props.details.item.GithubUrl)
+    copy(this.getItem().GithubUrl)
     this.setState({ urlCopied: true })
     setTimeout(() => this.setState({ urlCopied: false }), 1e3)
   }
 
   render() {
-    const { item } = this.props.details
-    if (!item) {
-      return null
+    const { isFetching, error } = this.props
+    const item = this.getItem()
+    if (error) {
+      return <HttpError error={error} />
     }
-    const [user, repo] = item.ProjectPath.split('/')
+    if (isFetching || !item) {
+      return (
+        <Layout>
+          <LoadingAnimation />
+        </Layout>
+      )
+    }
 
+    const [user, repo] = item.ProjectPath.split('/')
     return (
       <Layout>
         <Helmet>
@@ -103,11 +121,11 @@ class Details extends Component {
 }
 
 const mapStateToProps = state => ({
-  details: state.details
+  ...state.details
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ fetchItem }, dispatch)
+  actions: bindActionCreators({ fetchItem, resetState }, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details)

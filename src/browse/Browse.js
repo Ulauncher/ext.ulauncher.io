@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
 import ExtensionGrid from '../layout/ExtensionGrid'
-import { fetchItems } from './BrowseActions'
-import Helmet from 'react-helmet'
+import { fetchBrowseItems, resetState } from './browseActions'
 
 class Browse extends Component {
-  componentWillMount() {
-    this.props.actions.fetchItems()
+  constructor(props) {
+    super(props)
+    const { history, actions, items } = this.props
+    // don't refresh on back button
+    if (history.action !== 'POP' || !items) {
+      actions.resetState()
+      actions.fetchBrowseItems()
+    }
   }
 
   render() {
@@ -29,7 +36,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ fetchItems }, dispatch)
+  actions: bindActionCreators({ fetchBrowseItems, resetState }, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Browse)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Browse))

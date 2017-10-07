@@ -57,7 +57,9 @@ export default class Navigation extends React.Component {
             </Nav>
             <Nav pullRight>
               <Li>
-                <AuthLink type="link" login>Log In</AuthLink>
+                <AuthLink type="link" login>
+                  Log In
+                </AuthLink>
               </Li>
             </Nav>
           </UserIsLoggedIn>

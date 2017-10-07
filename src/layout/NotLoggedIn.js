@@ -11,7 +11,11 @@ const NotLoggedIn = () => (
     </Helmet>
 
     <IboxContent title="You are not logged in">
-      <i className="fa fa-info-circle" />&nbsp;Please <AuthLink login>log in</AuthLink> with your Github account.
+      <i className="fa fa-info-circle" />&nbsp;Please{' '}
+      <AuthLink type="link" login>
+        log in
+      </AuthLink>{' '}
+      with your Github account.
     </IboxContent>
   </Layout>
 )

@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
 import ExtensionGrid from '../layout/ExtensionGrid'
-import { fetchMyItems } from './MyActions'
+import { fetchMyItems, resetState } from './myActions'
 
 class My extends Component {
-  componentWillMount() {
-    this.props.actions.fetchMyItems()
+  constructor(props) {
+    super(props)
+    const { history, actions, items } = this.props
+    // don't refresh on back button
+    if (history.action !== 'POP' || !items) {
+      actions.resetState()
+      actions.fetchMyItems()
+    }
   }
 
   render() {
@@ -29,7 +36,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ fetchMyItems }, dispatch)
+  actions: bindActionCreators({ fetchMyItems, resetState }, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(My)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(My))
