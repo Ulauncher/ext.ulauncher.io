@@ -7,7 +7,7 @@ import Step2 from './Step2'
 import IboxContent from '../layout/IboxContent'
 import Wizard from '../layout/Wizard'
 
-class AddExtension extends React.Component {
+export class AddExtension extends React.Component {
   constructor(props) {
     super(props)
     this.steps = [

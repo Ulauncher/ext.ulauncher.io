@@ -18,7 +18,7 @@ export function uploadImages(files) {
 export function submitExtension(data, history) {
   return {
     type: ADD_EXT_SUBMIT,
-    payload: new Promise((resolve, reject) => {
+    payload: (async () => {
       let errors = {}
       if (!data.Name) {
         errors.Name = 'Name cannot be empty'
@@ -27,26 +27,31 @@ export function submitExtension(data, history) {
         errors.Description = 'Description cannot be empty'
       }
 
-      if (!Object.keys(errors).length) {
-        resolve()
-      } else {
-        reject({ errors })
+      if (Object.keys(errors).length) {
+        const e = { errors }
+        throw e
       }
-    }).then(() => api.submitExtension(data).then(({ data }) => history.push(`/-/${data.ID}`)))
+
+      let resp = await api.submitExtension(data)
+      history.push(`/-/${resp.data.ID}`)
+    })()
   }
 }
 
 export function validateExtensionUrl(url) {
   return {
     type: ADD_EXT_CHECK_URL,
-    payload: new Promise((resolve, reject) => {
+    payload: (async () => {
+      let e
       if (!url) {
-        reject({ error: { description: 'Please enter URL' } })
+        e = { error: { description: 'Please enter URL' } }
+        throw e
       } else if (!url.match(/^http(s)?:\/\/(www\.)?github\.com\/[A-z 0-9 _ -]+\/[A-z 0-9 _ -]+\/?$/i)) {
-        reject({ error: { description: 'Invalid Github URL' } })
-      } else {
-        resolve()
+        e = { error: { description: 'Invalid Github URL' } }
+        throw e
       }
-    }).then(() => api.checkManifest(url))
+
+      return api.checkManifest(url)
+    })()
   }
 }
