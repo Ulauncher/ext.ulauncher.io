@@ -9,27 +9,28 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case `${types.AUTH0_SET_SESSION}_PENDING`:
+    case `${types.SET_SESSION}_PENDING`:
       return {
         ...state,
         isFetching: true,
         error: null
       }
-    case `${types.AUTH0_SET_SESSION}_FULFILLED`:
+    case `${types.SET_SESSION}_FULFILLED`:
+    case `${types.RENEW_SESSION}_FULFILLED`:
       return {
         ...state,
         session: action.payload,
         isFetching: false,
         error: null
       }
-    case `${types.AUTH0_SET_SESSION}_REJECTED`:
+    case `${types.SET_SESSION}_REJECTED`:
       return {
         ...state,
         isFetching: false,
         error: action.payload
       }
 
-    case types.AUTH0_LOGOUT:
+    case types.LOGOUT:
       return {
         ...state,
         session: null

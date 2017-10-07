@@ -35,7 +35,7 @@ export default function ExtensionGrid({ error, isFetching, items, showLoadMore }
                 <div className="ibox-content product-box">
                   <Link to={link(item)}>
                     <div className="product-imitation">
-                      <img height="200" alt="Screen shot" src={item.Images[0]} />
+                      <img alt="Screen shot" src={item.Images[0]} />
                     </div>
                   </Link>
                   <div className="product-desc">

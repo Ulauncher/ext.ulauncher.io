@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
 import ExtensionGrid from '../layout/ExtensionGrid'
+import IboxContent from '../layout/IboxContent'
 import { fetchMyItems, resetState } from './myActions'
 
 class My extends Component {
@@ -25,7 +26,11 @@ class My extends Component {
         <Helmet>
           <title>Your</title>
         </Helmet>
-        <ExtensionGrid error={error} isFetching={isFetching} items={items} />
+        {items && items.length === 0 ? (
+          <IboxContent title="No extensions :(">You haven't submitted any extensions yet.</IboxContent>
+        ) : (
+          <ExtensionGrid error={error} isFetching={isFetching} items={items} />
+        )}
       </Layout>
     )
   }

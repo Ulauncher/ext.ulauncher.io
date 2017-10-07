@@ -9,7 +9,7 @@ export const handleAuthentication = history => {
   })
 
   return {
-    type: types.AUTH0_SET_SESSION,
+    type: types.SET_SESSION,
     payload: sessionPromise
   }
 }
@@ -19,7 +19,7 @@ export const login = history => {
   authService.login()
 
   return {
-    type: types.AUTH0_LOGIN
+    type: types.LOGIN
   }
 }
 
@@ -30,6 +30,35 @@ export const logout = history => {
   }, 0)
 
   return {
-    type: types.AUTH0_LOGOUT
+    type: types.LOGOUT
+  }
+}
+
+let timer
+export const renewAuth0Session = session => {
+  if (!session) {
+    return { type: types.RENEW_SESSION }
+  }
+
+  let expiresIn = session.expiresAt - Date.now() - 60e3
+  if (expiresIn <= 0) {
+    expiresIn = 0
+  }
+
+  if (timer) {
+    return { type: types.RENEW_SESSION }
+  }
+
+  console.log(`Renew Auth0 session in ${expiresIn / 1000} sec`)
+
+  return {
+    type: types.RENEW_SESSION,
+    payload: new Promise(resolve => {
+      timer = setTimeout(async () => {
+        await authService.renew()
+        timer = null
+        resolve(authService.getSession())
+      }, expiresIn)
+    })
   }
 }

@@ -1,8 +1,17 @@
 .product-imitation {
     padding: 0px;
+    height: 250px;
+}
+.product-imitation:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 .product-imitation img {
-    max-width: 100%;
+    vertical-align: middle;
+    max-width: 250px;
+    max-height: 250px;
 }
 
 .wizard > .content > .body {

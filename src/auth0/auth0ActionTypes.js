@@ -1,3 +1,4 @@
-export const AUTH0_SET_SESSION = 'AUTH0_SET_SESSION'
-export const AUTH0_LOGIN = 'AUTH0_LOGIN'
-export const AUTH0_LOGOUT = 'AUTH0_LOGOUT'
+export const SET_SESSION = 'AUTH0/SET_SESSION'
+export const LOGIN = 'AUTH0/LOGIN'
+export const LOGOUT = 'AUTH0/LOGOUT'
+export const RENEW_SESSION = 'AUTH0/RENEW_SESSION'

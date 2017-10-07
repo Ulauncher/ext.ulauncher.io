@@ -12,7 +12,7 @@ const initState = {
 }
 
 export default function reducer(state = initState, action) {
-  const { error, errors } = action.payload || {}
+  const { description: error, errors } = action.payload || {}
   switch (action.type) {
     case ADD_EXT_STEP_BACK:
       return {
@@ -33,7 +33,7 @@ export default function reducer(state = initState, action) {
       return {
         ...state,
         isFetching: false,
-        errors: { GithubUrl: (error && error.description) || 'Connection error!' }
+        errors: { GithubUrl: error || 'Connection error!' }
       }
 
     case `${ADD_EXT_CHECK_URL}_FULFILLED`:
@@ -79,7 +79,7 @@ export default function reducer(state = initState, action) {
         ...state,
         isFetching: false,
         errors: errors || {},
-        error: (error && error.description) || 'Connection error!'
+        error: error || 'Connection error!'
       }
 
     case `${ADD_EXT_SUBMIT}_FULFILLED`:
