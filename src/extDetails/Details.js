@@ -8,9 +8,13 @@ import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-boots
 import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
 import LoadingAnimation from '../layout/LoadingAnimation'
-import { fetchItem, resetState } from './DetailsActions'
+import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
+import { fetchItem } from '../api'
 
-class Details extends Component {
+const { actions, reducer } = makeTypesActionsReducer('EXT/DETAILS', fetchItem)
+export { reducer }
+
+export class Details extends Component {
   constructor(props) {
     super(props)
     this.copyUrl = this.copyUrl.bind(this)
@@ -18,12 +22,12 @@ class Details extends Component {
       urlCopied: false
     }
     if (!this.getItem()) {
-      this.props.actions.fetchItem(this.props.match.params.id)
+      this.props.actions.httpRequest(this.props.match.params.id)
     }
   }
 
   getItem() {
-    return this.props.item || this.props.location.state
+    return this.props.payload ? this.props.payload.data : this.props.location.state
   }
 
   componentWillUnmount() {
@@ -125,7 +129,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ fetchItem, resetState }, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details)

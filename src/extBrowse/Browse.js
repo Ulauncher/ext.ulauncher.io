@@ -5,27 +5,32 @@ import { withRouter } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
 import ExtensionGrid from '../extCommon/ExtensionGrid'
-import { fetchBrowseItems, resetState } from './browseActions'
+import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
+import { fetchItems } from '../api'
+
+const { actions, reducer } = makeTypesActionsReducer('EXT/BROWSE', fetchItems)
+export { reducer }
 
 class Browse extends Component {
   constructor(props) {
     super(props)
-    const { history, actions, items } = this.props
+    const { history, actions, payload } = this.props
     // don't refresh on back button
-    if (history.action !== 'POP' || !items) {
+    if (history.action !== 'POP' || !payload) {
       actions.resetState()
-      actions.fetchBrowseItems()
+      actions.httpRequest()
     }
   }
 
   render() {
-    const { error, isFetching, items } = this.props
+    const { error, fetching, payload } = this.props
+    const items = payload && payload.data
     return (
       <Layout>
         <Helmet>
           <title>Browse Extensions</title>
         </Helmet>
-        <ExtensionGrid error={error} isFetching={isFetching} items={items} />
+        <ExtensionGrid error={error} isFetching={fetching} items={items} />
       </Layout>
     )
   }
@@ -36,7 +41,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ fetchBrowseItems, resetState }, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Browse))
