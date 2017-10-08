@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
-import ExtensionGrid from '../layout/ExtensionGrid'
+import ExtensionGrid from '../extCommon/ExtensionGrid'
 import { fetchBrowseItems, resetState } from './browseActions'
 
 class Browse extends Component {
@@ -32,7 +32,7 @@ class Browse extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.browse
+  ...state.ext.browse
 })
 
 const mapDispatchToProps = dispatch => ({

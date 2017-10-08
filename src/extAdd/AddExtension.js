@@ -37,4 +37,4 @@ export class AddExtension extends React.Component {
   }
 }
 
-export default connect(state => ({ step: state.addExtension.step }))(AddExtension)
+export default connect(state => ({ step: state.ext.add.step }))(AddExtension)

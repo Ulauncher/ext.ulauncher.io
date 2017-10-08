@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import copy from 'copy-to-clipboard'
 import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-bootstrap'
 import Layout from '../layout/Layout'
-import HttpError from '../error/HttpError'
+import HttpError from '../layout/error/HttpError'
 import LoadingAnimation from '../layout/LoadingAnimation'
 import { fetchItem, resetState } from './DetailsActions'
 
@@ -121,7 +121,7 @@ class Details extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.details
+  ...state.ext.details
 })
 
 const mapDispatchToProps = dispatch => ({

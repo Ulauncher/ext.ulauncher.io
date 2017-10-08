@@ -1,8 +1,8 @@
 import * as api from '../api'
 
-export const FETCH_ITEM = 'DETAILS/FETCH_ITEM'
-export const RESET_STATE = 'DETAILS/RESET_STATE'
-export const SET_ITEM = 'DETAILS/SET_ITEM'
+export const FETCH_ITEM = 'EXT/DETAILS/FETCH_ITEM'
+export const RESET_STATE = 'EXT/DETAILS/RESET_STATE'
+export const SET_ITEM = 'EXT/DETAILS/SET_ITEM'
 
 export function fetchItem(id) {
   return {

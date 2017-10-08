@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import { shallow } from 'enzyme'
 import { App } from './App'
-import Browse from '../browse/Browse'
+import Browse from '../extBrowse/Browse'
 
 const makeProps = () => {
   return {

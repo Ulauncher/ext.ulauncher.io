@@ -1,0 +1,4 @@
+export const CHECK_URL = 'EXT/ADD/CHECK_URL'
+export const STEP_BACK = 'EXT/ADD/STEP_BACK'
+export const UPLOAD_IMAGES = 'EXT/ADD/UPLOAD_IMAGES'
+export const SUBMIT = 'EXT/ADD/SUBMIT'

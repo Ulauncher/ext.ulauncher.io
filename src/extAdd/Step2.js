@@ -96,7 +96,7 @@ class Step2 extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ state: state.addExtension })
+const mapStateToProps = state => ({ state: state.ext.add })
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ stepBack, uploadImages, submitExtension }, dispatch)
 })

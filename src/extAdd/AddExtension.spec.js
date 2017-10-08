@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { AddExtension } from '../addExtension/AddExtension'
+import { AddExtension } from './AddExtension'
 import Wizard from '../layout/Wizard'
 
 it('renders wizard', () => {

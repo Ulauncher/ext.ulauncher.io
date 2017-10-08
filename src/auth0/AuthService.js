@@ -3,7 +3,7 @@ import auth0Client, { WebAuth } from 'auth0-js'
 const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID
 const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN
 const audience = `https://${AUTH0_DOMAIN}/userinfo`
-const scope = 'openid'
+const scope = 'openid profile'
 const auth0 = new WebAuth({
   domain: AUTH0_DOMAIN,
   clientID: AUTH0_CLIENT_ID,
@@ -40,8 +40,10 @@ export class AuthService {
     let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime())
     let session = {
       user: {
-        email: authResult.idTokenPayload.email,
-        emailVerified: authResult.idTokenPayload.email_verified
+        id: authResult.idTokenPayload.sub,
+        name: authResult.idTokenPayload.name,
+        nickname: authResult.idTokenPayload.nickname,
+        picture: authResult.idTokenPayload.picture
       },
       accessToken: authResult.accessToken,
       idToken: authResult.idToken,

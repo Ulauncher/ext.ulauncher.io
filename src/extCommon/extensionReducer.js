@@ -18,7 +18,7 @@ export default function createReducer(actionType) {
         return {
           ...state,
           isFetching: false,
-          error: description || action.payload.toString() || 'Connection error'
+          error: description || 'Connection error'
         }
 
       case `${actionType.FETCH_ITEMS}_FULFILLED`:

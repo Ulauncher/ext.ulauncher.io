@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as auth0Actions from './auth0Actions'
 import Loading from '../layout/Loading'
-import Error from '../error/Error'
+import Error from '../layout/error/Error'
 
 export class AuthCallback extends React.Component {
   componentWillMount() {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
-import ExtensionGrid from '../layout/ExtensionGrid'
+import ExtensionGrid from '../extCommon/ExtensionGrid'
 import IboxContent from '../layout/IboxContent'
 import { fetchMyItems, resetState } from './myActions'
 
@@ -37,7 +37,7 @@ class My extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.my
+  ...state.ext.my
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -3,14 +3,15 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Helmet from 'react-helmet'
-import Browse from '../browse/Browse'
-import My from '../my/My'
-import AddExtension from '../addExtension/AddExtension'
+import Browse from '../extBrowse/Browse'
+import My from '../extMy/My'
+import AddExtension from '../extAdd/AddExtension'
 import AuthCallback from '../auth0/AuthCallback'
 import { renewAuth0Session } from '../auth0/auth0Actions'
 import UserRoute from '../auth0/UserRoute'
-import NotFound from '../error/NotFound'
-import Details from '../details/Details'
+import NotFound from '../layout/error/NotFound'
+import EditExtension from '../extEdit/EditExtension'
+import Details from '../extDetails/Details'
 import NotLoggedIn from '../layout/NotLoggedIn'
 
 export class App extends React.Component {
@@ -37,8 +38,9 @@ export class App extends React.Component {
             <body className="gray-bg" />
           </Helmet>
           <Switch>
-            <Route exact path="/" component={Browse} />
-            <Route path="/-/:id" component={Details} />
+            <Route path="/" exact component={Browse} />
+            <Route path="/-/:id" exact component={Details} />
+            <Route path="/-/:id/edit" exact component={EditExtension} />
             <Route path="/auth0-callback" component={AuthCallback} />
             <UserRoute path="/new" auth={AddExtension} unauth={NotLoggedIn} />
             <UserRoute path="/my" auth={My} unauth={NotLoggedIn} />

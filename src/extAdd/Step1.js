@@ -44,7 +44,7 @@ class Step1 extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ state: state.addExtension })
+const mapStateToProps = state => ({ state: state.ext.add })
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ validateExtensionUrl }, dispatch)
 })
