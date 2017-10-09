@@ -11,21 +11,16 @@ export default function make(typePrefix, requestFn) {
     UPDATE_STATE: `${typePrefix}/UPDATE_STATE`
   }
 
-  const httpRequest = (...args) => {
-    return {
-      type: types.HTTP_REQUEST,
-      payload: requestFn(...args)
-    }
-  }
+  const actions = {
+    httpRequest(...args) {
+      return {
+        type: types.HTTP_REQUEST,
+        payload: requestFn(...args)
+      }
+    },
 
-  const resetState = () => {
-    return { type: types.RESET_STATE }
-  }
-
-  const updateState = updates => {
-    return {
-      type: types.UPDATE_STATE,
-      updates
+    resetState() {
+      return { type: types.RESET_STATE }
     }
   }
 
@@ -69,7 +64,7 @@ export default function make(typePrefix, requestFn) {
 
   return {
     types,
-    actions: { httpRequest, resetState, updateState },
+    actions,
     reducer
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import Helmet from 'react-helmet'
 import { reduxForm } from 'redux-form'
 import { Alert, FormGroup, ButtonToolbar, Button } from 'react-bootstrap'
@@ -7,45 +8,68 @@ import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
 import IboxContent from '../layout/IboxContent'
 import ReduxFormInput from '../layout/ReduxFormInput'
+import ScreenshotDropzone from '../extCommon/ScreenshotDropzone'
 import submitEditForm from './submitEditForm'
+import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
+import { fetchItem } from '../api'
+
+const { actions, reducer } = makeTypesActionsReducer('EXT/DETAILS', fetchItem)
+export { reducer }
 
 export class EditExtension extends React.Component {
   constructor(props) {
     super(props)
-    if (!this.getItem()) {
-      this.props.actions.fetchItem(this.props.match.params.id)
-    }
+    this.onSubmit = this.onSubmit.bind(this)
+    this.updatedItem = null
+
+    this.props.actions.resetState()
+    this.props.actions.httpRequest(this.props.match.params.id)
   }
 
   getItem() {
-    return this.props.item || this.props.location.state
+    if (this.updatedItem) {
+      return this.updatedItem
+    }
+    const { payload } = this.props.itemState
+    return payload && payload.data
+  }
+
+  async onSubmit(data) {
+    const item = this.getItem()
+    const resp = await this.props.submitEditForm(item.ID, {
+      ...data,
+      Images: this.props.newImages
+    })
+    this.updatedItem = resp.data
   }
 
   render() {
-    let { isFetching, fetchingError, error, handleSubmit, submitting, submitEditForm } = this.props
+    let { itemState, error, handleSubmit, submitting } = this.props
     const item = this.getItem()
 
-    if (error || fetchingError) {
-      return <HttpError error={error || fetchingError} />
+    if (itemState.error) {
+      return <HttpError error={itemState.error} />
     }
 
     return (
       <div>
         <Layout>
           <Helmet>
-            <title>{item ? item.Name : '...'}</title>
+            <title>{item && item.Name}</title>
           </Helmet>
-          <IboxContent title="Edit Extension" fetching={isFetching}>
-            <form className="form-horizontal" onSubmit={handleSubmit(submitEditForm)}>
+          <IboxContent title="Edit Extension" fetching={itemState.fetching}>
+            <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
               <FormGroup>
                 <label className="col-sm-2 control-label">Github URL</label>
                 <div className="col-sm-10">
-                  <p className="form-control-static">{item.GithubUrl}</p>
+                  <p className="form-control-static">{item && item.GithubUrl}</p>
                 </div>
               </FormGroup>
               <ReduxFormInput label="Name" name="Name" />
               <ReduxFormInput label="Description" name="Description" />
               <ReduxFormInput label="Developer Name" name="DeveloperName" />
+
+              {item && <ScreenshotDropzone extId={item.ID} existingImages={item.Images} />}
 
               <FormGroup>
                 <div className="col-sm-10 col-sm-offset-2">
@@ -70,24 +94,26 @@ export class EditExtension extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  const { profile, ...rest } = state.clientProfile
-  let initialValues = null
-  if (profile) {
-    let { userId, salesPerson, ...editableFields } = profile
-    initialValues = editableFields
-  }
+const mapStateToProps = (state, props) => {
+  let item
+  try {
+    item = state.ext.edit.payload.data
+  } catch (e) {}
 
   return {
-    initialValues: initialValues,
-    profile,
+    initialValues: item && {
+      Name: item.Name,
+      Description: item.Description,
+      DeveloperName: item.DeveloperName
+    },
     submitEditForm,
-    details: state.ext.details
+    itemState: state.ext.edit,
+    newImages: state.ext.screenshots.images
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ getClientProfile }, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'initializeFromState' })(EditExtension))

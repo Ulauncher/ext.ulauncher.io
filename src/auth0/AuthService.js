@@ -36,8 +36,6 @@ export class AuthService {
   }
 
   setSession(authResult) {
-    // Set the time that the access token will expire at
-    let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime())
     let session = {
       user: {
         id: authResult.idTokenPayload.sub,
@@ -47,7 +45,7 @@ export class AuthService {
       },
       accessToken: authResult.accessToken,
       idToken: authResult.idToken,
-      expiresAt: expiresAt
+      expiresAt: authResult.idTokenPayload.exp * 1000
     }
     localStorage.setItem(localStorageKey, JSON.stringify(session))
   }

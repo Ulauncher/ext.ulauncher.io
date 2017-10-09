@@ -68,6 +68,14 @@ export function submitExtension(data) {
   })
 }
 
+export function editExtension(id, data) {
+  return fetchApi(`/extensions/${id}`, {
+    auth: true,
+    method: 'PATCH',
+    body: JSON.stringify(data)
+  })
+}
+
 export function fetchItems() {
   return fetchApi('/extensions')
 }

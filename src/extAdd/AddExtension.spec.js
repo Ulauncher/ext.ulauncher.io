@@ -6,5 +6,5 @@ import Wizard from '../layout/Wizard'
 it('renders wizard', () => {
   const comp = shallow(<AddExtension step="2" />)
   const wizard = comp.find(Wizard).first()
-  expect(wizard.prop('current')).toBe("2")
+  expect(wizard.prop('current')).toBe('2')
 })

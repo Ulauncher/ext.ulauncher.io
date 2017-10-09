@@ -30,8 +30,7 @@ export class ExtensionGrid extends React.Component {
     })
 
     const editLink = item => ({
-      pathname: `/-/${item.ID}/edit`,
-      state: item
+      pathname: `/-/${item.ID}/edit`
     })
 
     return (

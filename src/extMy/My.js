@@ -12,7 +12,6 @@ import { fetchMyItems } from '../api'
 const { actions, reducer } = makeTypesActionsReducer('EXT/MY', fetchMyItems)
 export { reducer }
 
-
 class My extends Component {
   constructor(props) {
     super(props)

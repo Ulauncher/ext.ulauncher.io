@@ -10,7 +10,7 @@ import AuthCallback from '../auth0/AuthCallback'
 import { renewAuth0Session } from '../auth0/auth0Actions'
 import UserRoute from '../auth0/UserRoute'
 import NotFound from '../layout/error/NotFound'
-// import EditExtension from '../extEdit/EditExtension'
+import EditExtension from '../extEdit/EditExtension'
 import Details from '../extDetails/Details'
 import NotLoggedIn from '../layout/NotLoggedIn'
 
@@ -40,7 +40,7 @@ export class App extends React.Component {
           <Switch>
             <Route path="/" exact component={Browse} />
             <Route path="/-/:id" exact component={Details} />
-            {/*<Route path="/-/:id/edit" exact component={EditExtension} />*/}
+            <UserRoute path="/-/:id/edit" exact auth={EditExtension} unauth={NotLoggedIn} />
             <Route path="/auth0-callback" component={AuthCallback} />
             <UserRoute path="/new" auth={AddExtension} unauth={NotLoggedIn} />
             <UserRoute path="/my" auth={My} unauth={NotLoggedIn} />

@@ -72,14 +72,44 @@ form .btn {
     position: relative;
     overflow: hidden;
 }
+
 .prev-img {
-    max-width: 20%;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    width: 200px;
+    height: 220px;
+    padding-top: 30px;
     margin-right: 10px;
     margin-top: 10px;
-    float: left;
+    border: 1px solid #ccc;
+}
+.prev-img:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.prev-img .controls {
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    width: 150px;
+    text-align: center;
+}
+.prev-img .controls a {
+    display: inline-block;
+    font-size: 130%;
+    color: #aaa;
+    margin: 0 10px;
+}
+.prev-img .controls a:hover {
+    color: #676a6c;
 }
 .prev-img img {
-    max-width: 100%;
+    vertical-align: middle;
+    max-width: 180px;
+    max-height: 180px;
 }
 
 
