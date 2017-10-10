@@ -13,12 +13,12 @@ export class ScreenshotDropzone extends React.Component {
   }
 
   render() {
-    const { actions, error, uploading, images, extId } = this.props
+    const { actions, error, uploadError, uploading, images } = this.props
     return (
-      <FormGroup validationState={error && 'error'}>
+      <FormGroup validationState={error || uploadError ? 'error' : null}>
         <ControlLabel className="col-sm-2">Screen shots</ControlLabel>
         <Col sm={10}>
-          <Dropzone className="text-center p-xl ibox-content" onDrop={files => actions.uploadImages(extId, files)}>
+          <Dropzone className="text-center p-xl ibox-content" onDrop={actions.uploadImages}>
             <p>
               Drop screen shots here or select to upload
               <span style={{ visibility: uploading ? 'visible' : 'hidden' }}>
@@ -49,7 +49,7 @@ export class ScreenshotDropzone extends React.Component {
                 </div>
               ))}
           </div>
-          <HelpBlock>{error}</HelpBlock>
+          <HelpBlock>{error || uploadError}</HelpBlock>
         </Col>
       </FormGroup>
     )

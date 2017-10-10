@@ -69,7 +69,7 @@ export class EditExtension extends React.Component {
               <ReduxFormInput label="Description" name="Description" />
               <ReduxFormInput label="Developer Name" name="DeveloperName" />
 
-              {item && <ScreenshotDropzone extId={item.ID} existingImages={item.Images} />}
+              {item && <ScreenshotDropzone existingImages={item.Images} />}
 
               <FormGroup>
                 <div className="col-sm-10 col-sm-offset-2">

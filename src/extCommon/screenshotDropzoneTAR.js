@@ -3,7 +3,7 @@ import { uploadImages as uploadImagesRequest } from '../api'
 const initState = {
   uploading: false,
   images: null,
-  error: null
+  uploadError: null
 }
 
 const types = {
@@ -24,10 +24,13 @@ const swapArrayElements = function(arr, indexA, indexB) {
 }
 
 const actions = {
-  uploadImages(extId, files) {
+  uploadImages(files) {
+    const formData = new FormData()
+    files.forEach((f, i) => formData.append('file_' + i, f))
+
     return {
       type: types.UPLOAD_REQUEST,
-      images: uploadImagesRequest(extId, files)
+      payload: uploadImagesRequest(formData)
     }
   },
 
@@ -73,15 +76,15 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         uploading: false,
-        error: description || 'Connection error'
+        uploadError: description || 'Connection error'
       }
 
     case `${types.UPLOAD_REQUEST}_FULFILLED`:
       return {
         ...state,
         uploading: false,
-        error: null,
-        images: action.images
+        uploadError: null,
+        images: [...state.images, ...action.payload.data]
       }
 
     case types.REMOVE_IMAGE:
