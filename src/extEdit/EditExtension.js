@@ -1,29 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Redirect } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import { reduxForm } from 'redux-form'
 import { Alert, FormGroup, ButtonToolbar, Button } from 'react-bootstrap'
+import { actions as toastrActions } from 'react-redux-toastr'
+
 import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
 import IboxContent from '../layout/IboxContent'
 import ReduxFormInput from '../layout/ReduxFormInput'
 import ScreenshotDropzone from '../extCommon/ScreenshotDropzone'
 import submitEditForm from './submitEditForm'
-import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
-import { fetchItem } from '../api'
-
-const { actions, reducer } = makeTypesActionsReducer('EXT/DETAILS', fetchItem)
-export { reducer }
+import { actions } from './editExtensionTAR'
 
 export class EditExtension extends React.Component {
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
+    this.onDelete = this.onDelete.bind(this)
     this.updatedItem = null
 
-    this.props.actions.resetState()
-    this.props.actions.httpRequest(this.props.match.params.id)
+    this.props.actions.resetDeleteState()
+    this.props.actions.fetchItem(this.props.match.params.id)
   }
 
   getItem() {
@@ -41,14 +41,36 @@ export class EditExtension extends React.Component {
       Images: this.props.newImages
     })
     this.updatedItem = resp.data
+    this.props.toastr.add({
+      type: 'success',
+      title: 'Success',
+      message: 'Extension has been saved',
+      options: { showCloseButton: true }
+    })
+  }
+
+  onDelete() {
+    this.props.toastr.showConfirm({
+      message: 'You sure?',
+      options: {
+        okText: 'Yes',
+        cancelTex: 'No',
+        onOk: () => this.props.actions.deleteItem(this.getItem().ID)
+      }
+    })
   }
 
   render() {
-    let { itemState, error, handleSubmit, submitting } = this.props
+    let { itemState, delState, error, handleSubmit, submitting } = this.props
     const item = this.getItem()
 
-    if (itemState.error) {
-      return <HttpError error={itemState.error} />
+    if (delState.payload) {
+      const myExt = { pathname: '/my', state: { deleted: true } }
+      return <Redirect to={myExt} />
+    }
+
+    if (itemState.error || delState.error) {
+      return <HttpError error={itemState.error || delState.error} />
     }
 
     return (
@@ -83,6 +105,18 @@ export class EditExtension extends React.Component {
                       )}
                       Save
                     </Button>
+                    <Button onClick={this.onDelete} disabled={delState.fetching}>
+                      {delState.fetching ? (
+                        <span>
+                          <i className="fa fa-spinner fa-spin" />&nbsp;
+                        </span>
+                      ) : (
+                        <span>
+                          <i className="fa fa-minux" />&nbsp;
+                        </span>
+                      )}
+                      Remove
+                    </Button>
                   </ButtonToolbar>
                 </div>
               </FormGroup>
@@ -97,7 +131,7 @@ export class EditExtension extends React.Component {
 const mapStateToProps = (state, props) => {
   let item
   try {
-    item = state.ext.edit.payload.data
+    item = state.ext.edit.item.payload.data
   } catch (e) {}
 
   return {
@@ -107,13 +141,19 @@ const mapStateToProps = (state, props) => {
       DeveloperName: item.DeveloperName
     },
     submitEditForm,
-    itemState: state.ext.edit,
+    itemState: state.ext.edit.item,
+    delState: state.ext.edit.del,
     newImages: state.ext.screenshots.images
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
+  toastr: bindActionCreators(toastrActions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'initializeFromState' })(EditExtension))
+export default connect(mapStateToProps, mapDispatchToProps)(
+  reduxForm({
+    form: 'initializeFromState'
+  })(EditExtension)
+)

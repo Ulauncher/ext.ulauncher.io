@@ -18,7 +18,7 @@ export class ScreenshotDropzone extends React.Component {
       <FormGroup validationState={error || uploadError ? 'error' : null}>
         <ControlLabel className="col-sm-2">Screen shots</ControlLabel>
         <Col sm={10}>
-          <Dropzone className="text-center p-xl ibox-content" onDrop={actions.uploadImages}>
+          <Dropzone className="text-center p-xl ibox-content cursor-pointer" onDrop={actions.uploadImages}>
             <p>
               Drop screen shots here or select to upload
               <span style={{ visibility: uploading ? 'visible' : 'hidden' }}>

@@ -17,7 +17,6 @@ class Browse extends Component {
     const { history, actions, payload } = this.props
     // don't refresh on back button
     if (history.action !== 'POP' || !payload) {
-      actions.resetState()
       actions.httpRequest()
     }
   }

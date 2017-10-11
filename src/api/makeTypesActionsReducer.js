@@ -29,6 +29,7 @@ export default function make(typePrefix, requestFn) {
       case `${types.HTTP_REQUEST}_PENDING`:
         return {
           ...state,
+          payload: null,
           fetching: true
         }
 

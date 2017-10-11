@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Helmet from 'react-helmet'
+import ReduxToastr from 'react-redux-toastr'
+
 import Browse from '../extBrowse/Browse'
 import My from '../extMy/My'
 import AddExtension from '../extAdd/AddExtension'
@@ -46,6 +48,13 @@ export class App extends React.Component {
             <UserRoute path="/my" auth={My} unauth={NotLoggedIn} />
             <Route component={NotFound} />
           </Switch>
+          <ReduxToastr
+            timeOut={2e3}
+            preventDuplicates
+            position="top-center"
+            transitionIn="fadeIn"
+            transitionOut="fadeOut"
+          />
         </div>
       </BrowserRouter>
     )

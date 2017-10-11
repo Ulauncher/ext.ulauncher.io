@@ -3,11 +3,12 @@ import { combineReducers } from 'redux'
 import auth0 from '../auth0/auth0Reducer'
 import add from '../extAdd/AddExtensionReducer'
 import { LOGOUT } from '../auth0/auth0ActionTypes'
-import { reducer as formReducer } from 'redux-form'
+import { reducer as toastr } from 'react-redux-toastr'
+import { reducer as form } from 'redux-form'
 import { reducer as browse } from '../extBrowse/Browse'
 import { reducer as my } from '../extMy/My'
 import { reducer as details } from '../extDetails/Details'
-import { reducer as edit } from '../extEdit/EditExtension'
+import { reducer as edit } from '../extEdit/editExtensionTAR'
 import { reducer as screenshots } from '../extCommon/screenshotDropzoneTAR'
 
 const appReducer = combineReducers({
@@ -20,7 +21,8 @@ const appReducer = combineReducers({
     edit,
     screenshots
   }),
-  form: formReducer
+  form,
+  toastr
 })
 
 const rootReducer = (state, action) => {

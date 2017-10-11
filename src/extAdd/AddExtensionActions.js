@@ -1,18 +1,8 @@
 import * as api from '../api'
-import { CHECK_URL, STEP_BACK, UPLOAD_IMAGES, SUBMIT } from './AddExtensionActionTypes'
+import { CHECK_URL, STEP_BACK, SUBMIT } from './AddExtensionActionTypes'
 
 export function stepBack() {
   return { type: STEP_BACK }
-}
-
-export function uploadImages(files) {
-  var formData = new FormData()
-  files.forEach((f, i) => formData.append('file_' + i, f))
-
-  return {
-    type: UPLOAD_IMAGES,
-    payload: api.uploadImages(formData)
-  }
 }
 
 export function submitExtension(data, history) {

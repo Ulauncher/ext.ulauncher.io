@@ -84,7 +84,7 @@ const reducer = (state = initState, action) => {
         ...state,
         uploading: false,
         uploadError: null,
-        images: [...state.images, ...action.payload.data]
+        images: (state.images || []).concat(action.payload.data)
       }
 
     case types.REMOVE_IMAGE:

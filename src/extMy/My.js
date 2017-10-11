@@ -3,6 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Helmet from 'react-helmet'
+import { actions as toastrActions } from 'react-redux-toastr'
+
 import Layout from '../layout/Layout'
 import ExtensionGrid from '../extCommon/ExtensionGrid'
 import IboxContent from '../layout/IboxContent'
@@ -18,8 +20,19 @@ class My extends Component {
     const { history, actions, payload } = this.props
     // don't refresh on back button
     if (history.action !== 'POP' || !payload) {
-      actions.resetState()
       actions.httpRequest()
+    }
+  }
+
+  componentDidMount() {
+    const { location, toastr } = this.props
+    if (location.state && location.state.deleted) {
+      toastr.add({
+        type: 'success',
+        title: 'Success',
+        message: 'Extension has been removed',
+        options: { showCloseButton: true }
+      })
     }
   }
 
@@ -46,7 +59,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
+  toastr: bindActionCreators(toastrActions, dispatch)
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(My))

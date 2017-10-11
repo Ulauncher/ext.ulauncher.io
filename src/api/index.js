@@ -4,7 +4,7 @@ import 'isomorphic-fetch'
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 const sleep = ms => new Promise(res => setTimeout(res, ms))
 
-const fetchApi = async (url_part, options = {}, contentType = 'application/json') => {
+const fetchApi = async (urlPart, options = {}, contentType = 'application/json') => {
   options.headers = { Accept: 'application/json' }
   if (options.auth) {
     // wait until session is renewed
@@ -20,10 +20,14 @@ const fetchApi = async (url_part, options = {}, contentType = 'application/json'
 
   let resp
   try {
-    resp = await fetch(`${API_BASE_URL}${url_part}`, options)
+    resp = await fetch(`${API_BASE_URL}${urlPart}`, options)
   } catch (e) {
     const error = { status: 'error' }
     throw error
+  }
+
+  if (resp.status === 204) {
+    return true
   }
 
   const respContentType = resp.headers.get('Content-Type')
@@ -86,4 +90,11 @@ export function fetchMyItems() {
 
 export function fetchItem(id) {
   return fetchApi(`/extensions/${id}`)
+}
+
+export function deleteItem(id) {
+  return fetchApi(`/extensions/${id}`, {
+    auth: true,
+    method: 'DELETE'
+  })
 }

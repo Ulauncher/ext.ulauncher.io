@@ -1,12 +1,9 @@
-import { CHECK_URL, STEP_BACK, UPLOAD_IMAGES, SUBMIT } from './AddExtensionActionTypes'
+import { CHECK_URL, STEP_BACK, SUBMIT } from './AddExtensionActionTypes'
 
 const initState = {
   isFetching: false,
-  uploadingImages: false,
   step: 0,
-  formData: {
-    Images: []
-  },
+  formData: {},
   errors: {},
   error: null
 }
@@ -44,34 +41,10 @@ export default function reducer(state = initState, action) {
           GithubUrl: data.GithubUrl,
           Name: data.Name,
           Description: data.Description,
-          DeveloperName: data.DeveloperName,
-          Images: data.Images || []
+          DeveloperName: data.DeveloperName
         },
         step: state.step + 1,
         isFetching: false
-      }
-
-    case `${UPLOAD_IMAGES}_PENDING`:
-      return {
-        ...state,
-        uploadingImages: true
-      }
-
-    case `${UPLOAD_IMAGES}_REJECTED`:
-      return {
-        ...state,
-        uploadingImages: false,
-        errors: { Images: action.payload.error.description }
-      }
-
-    case `${UPLOAD_IMAGES}_FULFILLED`:
-      return {
-        ...state,
-        formData: {
-          ...state.formData,
-          Images: [...state.formData, ...action.payload.data]
-        },
-        uploadingImages: false
       }
 
     case `${SUBMIT}_REJECTED`:
