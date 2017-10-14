@@ -9,6 +9,7 @@ const initState = {
 const types = {
   UPLOAD_REQUEST: `EXT/SCREENSHOTS/UPLOAD_REQUEST`,
   SET_STATE: `EXT/SCREENSHOTS/SET_STATE`,
+  RESET_STATE: `EXT/SCREENSHOTS/RESET_STATE`,
   REMOVE_IMAGE: `EXT/SCREENSHOTS/REMOVE_IMAGE`,
   SWAP_LEFT: `EXT/SCREENSHOTS/SWAP_LEFT`,
   SWAP_RIGHT: `EXT/SCREENSHOTS/SWAP_RIGHT`
@@ -45,6 +46,12 @@ const actions = {
     return {
       type: types.SET_STATE,
       updates
+    }
+  },
+
+  resetState() {
+    return {
+      type: types.RESET_STATE
     }
   },
 
@@ -110,6 +117,9 @@ const reducer = (state = initState, action) => {
         ...state,
         images: swapArrayElements(state.images, action.index, action.index + 1)
       }
+
+    case types.RESET_STATE:
+      return { ...initState }
 
     default:
       return state

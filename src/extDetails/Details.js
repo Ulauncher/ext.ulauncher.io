@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Slider from 'react-slick'
+import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import copy from 'copy-to-clipboard'
 import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-bootstrap'
+
 import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
 import LoadingAnimation from '../layout/LoadingAnimation'
@@ -41,7 +43,7 @@ export class Details extends Component {
   }
 
   render() {
-    const { isFetching, error } = this.props
+    const { isFetching, error, currentUser } = this.props
     const item = this.getItem()
     if (error) {
       return <HttpError error={error} />
@@ -102,7 +104,16 @@ export class Details extends Component {
                       </InputGroup>
                     </FormGroup>
 
-                    <div className="m-t-xl m-b-xl">{item.Description}</div>
+                    <div className="m-t-xl m-b-xl">
+                      {item.Description}
+                      {item.User === currentUser && (
+                        <p className="m-t text-righ">
+                          <Link to={`/-/${item.ID}/edit`} className="btn btn-xs btn-outline btn-primary">
+                            <i className="fa fa-pencil" /> Edit
+                          </Link>
+                        </p>
+                      )}
+                    </div>
 
                     <iframe
                       title="Github Stars"
@@ -125,7 +136,8 @@ export class Details extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...state.ext.details
+  ...state.ext.details,
+  currentUser: state.auth0.session && state.auth0.session.user.id
 })
 
 const mapDispatchToProps = dispatch => ({

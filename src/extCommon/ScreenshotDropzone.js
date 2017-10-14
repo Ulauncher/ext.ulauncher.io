@@ -3,13 +3,17 @@ import Dropzone from 'react-dropzone'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ControlLabel, Col, FormGroup, HelpBlock } from 'react-bootstrap'
-import { actions } from './screenshotDropzoneTAR'
+import { actions } from './screenshotDropzoneActions'
 
 export class ScreenshotDropzone extends React.Component {
   componentDidMount() {
     this.props.actions.setState({
       images: this.props.existingImages
     })
+  }
+
+  componentWillUnmount() {
+    this.props.actions.resetState()
   }
 
   render() {

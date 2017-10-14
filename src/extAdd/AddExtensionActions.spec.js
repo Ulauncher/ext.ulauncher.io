@@ -1,8 +1,7 @@
-import { uploadImages, submitExtension, validateExtensionUrl } from './AddExtensionActions'
+import { submitExtension, validateExtensionUrl } from './AddExtensionActions'
 import * as api from '../api'
 
 jest.mock('../api', () => ({
-  uploadImages: jest.fn(),
   checkManifest: jest.fn(),
   submitExtension: jest.fn(() =>
     Promise.resolve({
@@ -12,11 +11,6 @@ jest.mock('../api', () => ({
     })
   )
 }))
-
-it('uploadImages() calls api with correct args', () => {
-  uploadImages(['a', 'b'])
-  expect(api.uploadImages.mock.calls[0][0]).toBeInstanceOf(FormData)
-})
 
 /**
  * submitExtension

@@ -8,8 +8,8 @@ import { reducer as form } from 'redux-form'
 import { reducer as browse } from '../extBrowse/Browse'
 import { reducer as my } from '../extMy/My'
 import { reducer as details } from '../extDetails/Details'
-import { reducer as edit } from '../extEdit/editExtensionTAR'
-import { reducer as screenshots } from '../extCommon/screenshotDropzoneTAR'
+import { reducer as edit } from '../extEdit/editExtensionActions'
+import { reducer as screenshots } from '../extCommon/screenshotDropzoneActions'
 
 const appReducer = combineReducers({
   auth0,

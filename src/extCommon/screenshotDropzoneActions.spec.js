@@ -1,4 +1,4 @@
-import { types, reducer } from './screenshotDropzoneTAR'
+import { types, reducer } from './screenshotDropzoneActions'
 
 it('swaps images to left', () => {
   const newState = reducer({ images: ['a', 'b', 'c'] }, { type: types.SWAP_LEFT, index: 1 })

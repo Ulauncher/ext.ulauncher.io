@@ -13,7 +13,7 @@ import IboxContent from '../layout/IboxContent'
 import ReduxFormInput from '../layout/ReduxFormInput'
 import ScreenshotDropzone from '../extCommon/ScreenshotDropzone'
 import submitEditForm from './submitEditForm'
-import { actions } from './editExtensionTAR'
+import { actions } from './editExtensionActions'
 
 export class EditExtension extends React.Component {
   constructor(props) {
