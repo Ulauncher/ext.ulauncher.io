@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import copy from 'copy-to-clipboard'
 import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-bootstrap'
+import ReactDisqusComments from 'react-disqus-comments'
 
 import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
@@ -125,6 +126,10 @@ export class Details extends Component {
                       height="20px"
                     />
                   </div>
+                </div>
+
+                <div className="m-t-lg">
+                  <ReactDisqusComments shortname="ext-ulauncher-io" identifier={item.ID} />
                 </div>
               </div>
             </div>
