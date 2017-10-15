@@ -11,7 +11,7 @@ import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import promiseMiddleware from 'redux-promise-middleware'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import registerServiceWorker from './registerServiceWorker'
+import { unregister } from './registerServiceWorker'
 import reducer from './app/reducers'
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(promiseMiddleware())))
@@ -25,7 +25,7 @@ const render = App => {
 }
 
 render(App)
-registerServiceWorker()
+unregister()
 
 if (module.hot) {
   module.hot.accept('./app/App', () => {
