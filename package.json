@@ -29,6 +29,7 @@
     "redux-form": "^7.1.0",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^4.4.1",
+    "reselect": "^3.0.1",
     "slick-carousel": "^1.7.1"
   },
   "scripts": {
