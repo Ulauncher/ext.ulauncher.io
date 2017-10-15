@@ -16,6 +16,7 @@
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
     "react-dropzone": "^4.1.2",
+    "react-ga": "^2.3.5",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
     "react-redux-toastr": "^7.1.5",

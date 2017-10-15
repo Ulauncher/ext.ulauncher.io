@@ -15,6 +15,7 @@ import NotFound from '../layout/error/NotFound'
 import EditExtension from '../extEdit/EditExtension'
 import Details from '../extDetails/Details'
 import NotLoggedIn from '../layout/NotLoggedIn'
+import { logPageView } from './ga'
 
 export class App extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ export class App extends React.Component {
             <UserRoute path="/my" auth={My} unauth={NotLoggedIn} />
             <Route component={NotFound} />
           </Switch>
+          <Route component={logPageView} />
           <ReduxToastr
             timeOut={2e3}
             preventDuplicates
