@@ -1,8 +1,9 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
-import { ControlLabel, Col, FormGroup, HelpBlock } from 'react-bootstrap'
+import { Alert, ControlLabel, Col, FormGroup, HelpBlock } from 'react-bootstrap'
 import { actions } from './screenshotDropzoneActions'
 
 export class ScreenshotDropzone extends React.Component {
@@ -22,7 +23,7 @@ export class ScreenshotDropzone extends React.Component {
       <FormGroup validationState={error || uploadError ? 'error' : null}>
         <ControlLabel className="col-sm-2">Screen shots</ControlLabel>
         <Col sm={10}>
-          <Dropzone className="text-center p-xl ibox-content cursor-pointer" onDrop={actions.uploadImages}>
+          <Dropzone className="text-center p-xl ibox-content cursor-pointer m-b-sm" onDrop={actions.uploadImages}>
             <p>
               Drop screen shots here or select to upload
               <span style={{ visibility: uploading ? 'visible' : 'hidden' }}>
@@ -30,6 +31,22 @@ export class ScreenshotDropzone extends React.Component {
               </span>
             </p>
           </Dropzone>
+          <Alert bsStyle="warning">
+            <p>
+              Please make screenshots on a <b>white background</b>. You can use{' '}
+              <Link to="about:blank" target="_blank">
+                about:blank
+              </Link>{' '}
+              for that.
+            </p>
+            <p>
+              FYI,{' '}
+              <Link to="http://shutter-project.org/" target="_blank">
+                Shutter
+              </Link>{' '}
+              is a decent screenshot program for Linux.
+            </p>
+          </Alert>
           <div className="text-center images-wrapp">
             {images &&
               images.map((item, i) => (

@@ -4,9 +4,13 @@
 .product-imitation {
     padding: 0px;
     height: 250px;
+    background-color: white;
+}
+.product-desc {
+    background-color: #f8f8f9;
 }
 .product-imitation:before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -88,7 +92,7 @@ form .btn {
     border: 1px solid #ccc;
 }
 .prev-img:before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -114,7 +118,6 @@ form .btn {
     max-width: 180px;
     max-height: 180px;
 }
-
 
 /**
  * This is to override styles caused by .navbar-default
