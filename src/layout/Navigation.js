@@ -1,6 +1,7 @@
 import React from 'react'
 import { bindActionCreators, compose } from 'redux'
 import { connect } from 'react-redux'
+import { LinkContainer } from 'react-router-bootstrap'
 
 import { login, logout } from '../auth0/auth0Actions'
 import * as auth0Selectors from '../auth0/auth0Selectors'
@@ -40,7 +41,9 @@ export const Navigation = ({ isLoggedIn, githubName, actions, history }) => (
             }
             id="user-profile-dropdown"
           >
-            <MenuItem href="/my">Your Extensions</MenuItem>
+            <LinkContainer to="/my">
+              <MenuItem>Your Extensions</MenuItem>
+            </LinkContainer>
             <MenuItem divider />
             <MenuItem onClick={() => actions.logout(history)}>Log Out</MenuItem>
           </NavDropdown>
