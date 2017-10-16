@@ -10,4 +10,4 @@ docker run \
     -e CI=true \
     --env-file .env.prod \
     node:6 \
-    bash -c "cd /root/ulauncher && yarn install && yarn test && yarn build"
+    bash -c "cd /root/ulauncher && yarn install && yarn test && yarn build && rm -rf node_modules"
