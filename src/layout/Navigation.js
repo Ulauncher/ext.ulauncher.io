@@ -26,12 +26,7 @@ export const Navigation = ({ isLoggedIn, githubName, actions, history }) => (
         <NavLink exact to="/">
           Browse
         </NavLink>
-        <NavLink to="/new">
-          Submit New
-        </NavLink>
-        <NavLink hidden={!isLoggedIn} to="/my">
-          Your Extensions
-        </NavLink>
+        <NavLink to="/new">Submit New</NavLink>
         <NavItem href="http://docs.ulauncher.io">API Docs</NavItem>
         <NavItem href="https://ulauncher.io">Ulauncher App</NavItem>
       </Nav>
@@ -45,6 +40,8 @@ export const Navigation = ({ isLoggedIn, githubName, actions, history }) => (
             }
             id="user-profile-dropdown"
           >
+            <MenuItem href="/my">Your Extensions</MenuItem>
+            <MenuItem divider />
             <MenuItem onClick={() => actions.logout(history)}>Log Out</MenuItem>
           </NavDropdown>
         ) : (

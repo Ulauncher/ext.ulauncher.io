@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga'
 
-const init = false
+let init = false
 
 export function logPageView() {
   const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID
@@ -9,6 +9,7 @@ export function logPageView() {
   }
   if (!init) {
     console.log('Init Google Analytics:', gaTrackingId)
+    init = true
     ReactGA.initialize(gaTrackingId)
   }
   const page = window.location.pathname + window.location.search
