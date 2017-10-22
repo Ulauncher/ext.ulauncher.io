@@ -61,7 +61,7 @@ export class Details extends Component {
     return (
       <Layout>
         <Helmet>
-          <title>{item.Name || '...'}</title>
+          <title>{item.Name}</title>
         </Helmet>
         <div className="row">
           <div className="col-lg-12">
@@ -129,7 +129,11 @@ export class Details extends Component {
                 </div>
 
                 <div className="m-t-lg">
-                  <ReactDisqusComments shortname="ext-ulauncher-io" identifier={item.ID} />
+                  <ReactDisqusComments
+                    shortname="ext-ulauncher-io"
+                    identifier={item.ID}
+                    title={`${item.Name} – Ulauncher Extension`}
+                  />
                 </div>
               </div>
             </div>
