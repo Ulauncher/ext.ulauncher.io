@@ -47,19 +47,19 @@ export class ExtensionGrid extends React.Component {
                       </div>
                     </Link>
                     <div className="product-desc">
-                      <Link className="product-name" to={link(item)}>
-                        {item.Name}
-                      </Link>
-
-                      <div className="small m-t-xs">by {item.DeveloperName}</div>
-                      <div className="m-t">{item.Description}</div>
-                      {item.User === currentUser && (
-                        <div className="m-t text-righ">
-                          <Link to={editLink(item)} className="btn btn-xs btn-outline btn-primary">
-                            <i className="fa fa-pencil" /> Edit
+                      <div className="ellipsis">
+                        {item.User === currentUser && (
+                          <Link to={editLink(item)} className="btn btn-xs btn-outline btn-primary product-edit">
+                            <i className="fa fa-pencil" />
                           </Link>
-                        </div>
-                      )}
+                        )}
+                        <Link className="product-name" to={link(item)}>
+                          {item.Name}
+                        </Link>
+                      </div>
+
+                      <div className="small ellipsis m-t-xs">by {item.DeveloperName}</div>
+                      <div className="m-t ellipsis">{item.Description}</div>
                     </div>
                   </div>
                 </div>

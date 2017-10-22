@@ -9,6 +9,15 @@
 .product-desc {
     background-color: #fff;
 }
+.product-name {
+    display: inline-block;
+}
+.product-edit {
+    position: relative;
+    margin-right: 5px;
+    display: inline-block;
+    top: -3px;
+}
 .product-imitation:before {
     content: '';
     display: inline-block;
@@ -135,4 +144,9 @@ form .btn {
 }
 .navbar-default .navbar-toggle {
     border-color: transparent !important;
+}
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
