@@ -10,5 +10,5 @@ docker run \
     -v $HOME/.bash_history:/root/.bash_history \
     -p 3001:3001 \
     --name ext-ulauncher-io \
-    node:6 \
-    bash
+    node:8-alpine \
+    sh

@@ -42,7 +42,7 @@ export const Navigation = ({ isLoggedIn, githubName, actions, history }) => (
             id="user-profile-dropdown"
           >
             <LinkContainer to="/my">
-              <MenuItem>Your Extensions</MenuItem>
+              <MenuItem>My Extensions</MenuItem>
             </LinkContainer>
             <MenuItem divider />
             <MenuItem onClick={() => actions.logout(history)}>Log Out</MenuItem>

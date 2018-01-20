@@ -42,7 +42,7 @@ class My extends Component {
     return (
       <Layout>
         <Helmet>
-          <title>Your Extensions</title>
+          <title>My Extensions</title>
         </Helmet>
         {items && items.length === 0 ? (
           <IboxContent title="No extensions :(">You haven't submitted any extensions yet.</IboxContent>

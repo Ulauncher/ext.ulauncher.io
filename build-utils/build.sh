@@ -9,5 +9,5 @@ docker run \
     -e NODE_ENV=production \
     -e CI=true \
     --env-file .env.prod \
-    node:6 \
-    bash -c "cd /root/ulauncher && yarn install && yarn test && yarn build && rm -rf node_modules"
+    node:8-alpine \
+    sh -c "cd /root/ulauncher && yarn install && yarn test && yarn build && rm -rf node_modules"
