@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 import copy from 'copy-to-clipboard'
 import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-bootstrap'
-import ReactDisqusComments from 'react-disqus-comments'
 
+import DisqusComments from '../comments/DisqusComments'
 import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
 import LoadingAnimation from '../layout/LoadingAnimation'
@@ -129,8 +129,8 @@ export class Details extends Component {
                 </div>
 
                 <div className="m-t-lg">
-                  <ReactDisqusComments
-                    shortname="ext-ulauncher-io"
+                  <DisqusComments
+                    shortname="ext-dev"
                     identifier={item.ID}
                     title={`${item.Name} – Ulauncher Extension`}
                   />
