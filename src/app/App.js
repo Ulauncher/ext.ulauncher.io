@@ -7,6 +7,7 @@ import ReduxToastr from 'react-redux-toastr'
 
 import Browse from '../extBrowse/Browse'
 import My from '../extMy/My'
+import About from '../About/About'
 import AddExtension from '../extAdd/AddExtension'
 import AuthCallback from '../auth0/AuthCallback'
 import { renewAuth0Session } from '../auth0/auth0Actions'
@@ -43,6 +44,7 @@ export class App extends React.Component {
           <Switch>
             <Route path="/" exact component={Browse} />
             <Route path="/-/:id" exact component={Details} />
+            <Route path="/about" exact component={About} />
             <UserRoute path="/-/:id/edit" exact auth={EditExtension} unauth={NotLoggedIn} />
             <Route path="/auth0-callback" component={AuthCallback} />
             <UserRoute path="/new" auth={AddExtension} unauth={NotLoggedIn} />
