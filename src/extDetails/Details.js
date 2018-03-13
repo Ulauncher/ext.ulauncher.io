@@ -130,7 +130,7 @@ export class Details extends Component {
 
                 <div className="m-t-lg">
                   <DisqusComments
-                    shortname="ext-dev"
+                    shortname="ext-ulauncher-io"
                     identifier={item.ID}
                     title={`${item.Name} – Ulauncher Extension`}
                   />
