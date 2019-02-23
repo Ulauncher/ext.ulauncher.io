@@ -110,7 +110,8 @@ export async function getComments(extId) {
 
   const respContentType = resp.headers.get('Content-Type')
   if (respContentType !== 'application/json') {
-    throw new Error(`Unknown Content-Type ${respContentType}`)
+    const error = { status: 'error' }
+    throw error
   }
 
   return await resp.json()

@@ -27,7 +27,7 @@ export default function withComments(WrappedComponent) {
     render() {
       const { comments, ...rest } = this.props
       const { fetching, error, payload } = comments
-      return <WrappedComponent comments={!fetching && !error && payload} {...rest} />
+      return <WrappedComponent comments={!fetching && !error ? payload : null} {...rest} />
     }
   }
 
