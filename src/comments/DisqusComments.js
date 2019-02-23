@@ -12,7 +12,7 @@ class DisqusComments extends Component {
         <div className="social-comment">
           <div className="media-body">
             <div className="social-author">{post.author}</div>
-            <small className="text-muted">{post.createdAt}</small>
+            <small className="text-muted">{new Date(post.createdAt).toLocaleString()}</small>
             <div className="m-t-xs">{ReactHtmlParser(post.message)}</div>
           </div>
         </div>
@@ -39,7 +39,7 @@ class DisqusComments extends Component {
               <div className="social-avatar">
                 <div className="media-body">
                   <div className="social-author">{post.author}</div>
-                  <small className="text-muted">{post.createdAt}</small>
+                  <small className="text-muted">{new Date(post.createdAt).toLocaleString()}</small>
                 </div>
               </div>
               <div className="social-body">{ReactHtmlParser(post.message)}</div>
@@ -53,18 +53,3 @@ class DisqusComments extends Component {
 }
 
 export default DisqusComments
-
-function sortByDateAsc(posts) {
-  posts.sort((a, b) => {
-    return a.createdAt > b.createdAt
-  })
-}
-
-function sortPosts(posts) {
-  sortByDateAsc(posts)
-  posts.forEach(post => {
-    sortPosts(post.posts)
-  })
-
-  return posts
-}
