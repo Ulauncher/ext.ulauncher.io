@@ -7,11 +7,12 @@ import Helmet from 'react-helmet'
 import copy from 'copy-to-clipboard'
 import { FormGroup, InputGroup, Button, FormControl, Tooltip } from 'react-bootstrap'
 
-import DisqusComments from '../comments/DisqusComments'
 import Layout from '../layout/Layout'
 import HttpError from '../layout/error/HttpError'
 import LoadingAnimation from '../layout/LoadingAnimation'
 import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
+import withComments from '../comments/withComments'
+import DisqusComments from '../comments/DisqusComments'
 import { fetchItem } from '../api'
 import './gh-button.css'
 
@@ -22,12 +23,18 @@ export class Details extends Component {
   constructor(props) {
     super(props)
     this.copyUrl = this.copyUrl.bind(this)
+    this.showComments = this.showComments.bind(this)
     this.state = {
-      urlCopied: false
+      urlCopied: false,
+      showComments: false
     }
     if (!this.getItem()) {
       this.props.actions.httpRequest(this.props.match.params.id)
     }
+  }
+
+  showComments() {
+    this.setState(state => ({ showComments: !state.showComments }))
   }
 
   getItem() {
@@ -45,7 +52,8 @@ export class Details extends Component {
   }
 
   render() {
-    const { isFetching, error, currentUser } = this.props
+    const { isFetching, error, currentUser, comments } = this.props
+    const { showComments } = this.state
     const item = this.getItem()
     if (error) {
       return <HttpError error={error} />
@@ -59,6 +67,7 @@ export class Details extends Component {
     }
 
     const [user, repo] = item.ProjectPath.split('/')
+    const githubIssuesUrl = `https://github.com/${user}/${repo}/issues`
     return (
       <Layout>
         <Helmet>
@@ -118,7 +127,7 @@ export class Details extends Component {
                     </div>
 
                     <div className="github-btn">
-                      <a href={`https://github.com/${user}/${repo}/issues`} className="gh-btn" title="Report Issue">
+                      <a href={githubIssuesUrl} className="gh-btn" title="Report Issue">
                         <i className="fa fa-bug" /> <span className="gh-text">Report Issue</span>
                       </a>
                     </div>
@@ -131,20 +140,20 @@ export class Details extends Component {
                       width="100px"
                       height="20px"
                     />
-                  </div>
-                </div>
 
-                <div className="m-t-lg">
-                  <DisqusComments
-                    shortname="ext-ulauncher-io"
-                    identifier={item.ID}
-                    title={`${item.Name} – Ulauncher Extension`}
-                  />
+                    {comments && (
+                      <a className="clearfix show m-t-sm" onClick={this.showComments}>
+                        Show archived comments
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        {comments &&
+        showComments && <DisqusComments comments={comments} githubIssuesUrl={githubIssuesUrl} extId={item.ID} />}
       </Layout>
     )
   }
@@ -159,4 +168,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Details)
+export default withComments(connect(mapStateToProps, mapDispatchToProps)(Details))

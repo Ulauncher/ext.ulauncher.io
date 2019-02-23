@@ -28,7 +28,9 @@ export const Navigation = ({ isLoggedIn, githubName, actions, history }) => (
           Browse
         </NavLink>
         <NavLink to="/new">Submit New</NavLink>
-        <NavLink exact to="/about">About Extensions</NavLink>
+        <NavLink exact to="/about">
+          About Extensions
+        </NavLink>
         <NavItem href="http://docs.ulauncher.io">API Docs</NavItem>
         <NavItem href="https://ulauncher.io">Ulauncher App</NavItem>
       </Nav>

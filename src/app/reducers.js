@@ -10,6 +10,7 @@ import { reducer as my } from '../extMy/My'
 import { reducer as details } from '../extDetails/Details'
 import { reducer as edit } from '../extEdit/editExtensionActions'
 import { reducer as screenshots } from '../extCommon/screenshotDropzoneActions'
+import { reducer as comments } from '../comments/withComments'
 
 const appReducer = combineReducers({
   auth0,
@@ -19,7 +20,8 @@ const appReducer = combineReducers({
     my,
     details,
     edit,
-    screenshots
+    screenshots,
+    comments
   }),
   form,
   toastr

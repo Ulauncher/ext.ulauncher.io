@@ -37,7 +37,7 @@ xmlObject.disqus.thread.forEach(xmlThread => {
   }
   const thread = {
     id: xmlThread['dsq:id'],
-    extId: xmlThread.id,
+    pageId: xmlThread.id,
     posts: []
   }
   if (xmlThread.forum !== 'ext-ulauncher-io') {
@@ -81,7 +81,7 @@ Object.keys(threads).forEach(id => {
   if (!thread.posts.length) {
     return
   }
-  const extArchiveFile = `${destFullPath}/${thread.extId}.json`
+  const extArchiveFile = `${destFullPath}/${thread.pageId}.json`
   console.log(`Saving to ${extArchiveFile}`)
   fs.writeFileSync(extArchiveFile, JSON.stringify(thread.posts, null, 2))
 })

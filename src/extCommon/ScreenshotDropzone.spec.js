@@ -46,20 +46,50 @@ it('renders images', () => {
 it('renders only swap right for the first image', () => {
   const props = makeProps()
   const app = shallow(<ScreenshotDropzone {...props} />)
-  expect(app.find('.controls').first().find('.fa-arrow-circle-left').length).toEqual(0)
-  expect(app.find('.controls').first().find('.fa-arrow-circle-right').length).toEqual(1)
+  expect(
+    app
+      .find('.controls')
+      .first()
+      .find('.fa-arrow-circle-left').length
+  ).toEqual(0)
+  expect(
+    app
+      .find('.controls')
+      .first()
+      .find('.fa-arrow-circle-right').length
+  ).toEqual(1)
 })
 
 it('renders swap right & left for second image', () => {
   const props = makeProps()
   const app = shallow(<ScreenshotDropzone {...props} />)
-  expect(app.find('.controls').at(1).find('.fa-arrow-circle-left').length).toEqual(1)
-  expect(app.find('.controls').at(1).find('.fa-arrow-circle-right').length).toEqual(1)
+  expect(
+    app
+      .find('.controls')
+      .at(1)
+      .find('.fa-arrow-circle-left').length
+  ).toEqual(1)
+  expect(
+    app
+      .find('.controls')
+      .at(1)
+      .find('.fa-arrow-circle-right').length
+  ).toEqual(1)
 })
 
 it('renders only swap left for the last image', () => {
   const props = makeProps()
   const app = shallow(<ScreenshotDropzone {...props} />)
-  expect(app.find('.controls').last().find('.fa-arrow-circle-left').length).toEqual(1)
-  expect(app.find('.controls').last().find('.fa-arrow-circle-right').length).toEqual(0)
+  expect(
+    app
+      .find('.controls')
+      .last()
+      .find('.fa-arrow-circle-left').length
+  ).toEqual(1)
+  expect(
+    app
+      .find('.controls')
+      .last()
+      .find('.fa-arrow-circle-right').length
+  ).toEqual(0)
 })

@@ -98,3 +98,20 @@ export function deleteItem(id) {
     method: 'DELETE'
   })
 }
+
+export async function getComments(extId) {
+  let resp
+  try {
+    resp = await fetch(`/disqus-archive/${extId}.json`)
+  } catch (e) {
+    const error = { status: 'error' }
+    throw error
+  }
+
+  const respContentType = resp.headers.get('Content-Type')
+  if (respContentType !== 'application/json') {
+    throw new Error(`Unknown Content-Type ${respContentType}`)
+  }
+
+  return await resp.json()
+}

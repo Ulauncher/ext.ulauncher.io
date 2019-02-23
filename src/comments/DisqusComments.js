@@ -1,100 +1,70 @@
-import React from 'react'
-const DISQUS_CONFIG = ['shortname', 'identifier', 'title', 'url', 'category_id', 'onNewComment', 'language']
-let __disqusAdded = false
-/* global DISQUS */
+import React, { Component } from 'react'
+import { Alert } from 'react-bootstrap'
+import ReactHtmlParser from 'react-html-parser'
 
-function copyProps(context, props) {
-    const {
-        onNewComment,
-        language,
-        ...rest // Those props have to be set on context.page
-    } = props
+import IboxContent from '../layout/IboxContent'
+import './comments.css'
 
-    for (const prop in rest) {
-        context.page[prop] = rest[prop]
-    }
+class DisqusComments extends Component {
+  renderSubComments(posts) {
+    return posts.map(post => (
+      <div key={post.id}>
+        <div className="social-comment">
+          <div className="media-body">
+            <div className="social-author">{post.author}</div>
+            <small className="text-muted">{post.createdAt}</small>
+            <div className="m-t-xs">{ReactHtmlParser(post.message)}</div>
+          </div>
+        </div>
+        <div className="disqus-replies">{this.renderSubComments(post.posts)}</div>
+      </div>
+    ))
+  }
 
-    // Setting the language - if none is provided, the default one is used
-    context.language = language
+  render() {
+    const { githubIssuesUrl, comments } = this.props
+    return (
+      <IboxContent title="Comments">
+        <Alert>
+          <p>Comments have been discontinued in favor of Github Issues.</p>
+          <p>
+            If you have any issues or questions about this extension, please report them{' '}
+            <a href={githubIssuesUrl}>here</a>.
+          </p>
+        </Alert>
 
-    if (onNewComment) {
-        context.callbacks = {
-            onNewComment: [onNewComment]
-        }
-    }
-}
-
-class DisqusComments extends React.Component {
-    componentDidMount() {
-        this.loadDisqus()
-    }
-
-    componentDidUpdate() {
-        this.loadDisqus()
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.identifier !== this.props.identifier
-    }
-
-    render() {
-        const props = Object.keys(this.props).reduce(
-            (memo, key) => (DISQUS_CONFIG.some(config => config === key) ? memo : { ...memo, [key]: this.props[key] }),
-            {}
-        )
-
-        return (
-            <div {...props}>
-                <div id="disqus_thread" />
+        <div className="social-feed-box">
+          {comments.map(post => (
+            <div key={post.id}>
+              <div className="social-avatar">
+                <div className="media-body">
+                  <div className="social-author">{post.author}</div>
+                  <small className="text-muted">{post.createdAt}</small>
+                </div>
+              </div>
+              <div className="social-body">{ReactHtmlParser(post.message)}</div>
+              {!!post.posts.length && <div className="social-footer">{this.renderSubComments(post.posts)}</div>}
             </div>
-        )
-    }
-
-    addDisqusScript() {
-        if (__disqusAdded) {
-            return
-        }
-
-        const child = (this.disqus = document.createElement('script'))
-        const parent = document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]
-
-        child.async = true
-        child.type = 'text/javascript'
-        child.src = '//' + this.props.shortname + '.disqus.com/embed.js'
-
-        parent.appendChild(child)
-        __disqusAdded = true
-    }
-
-    loadDisqus() {
-        const props = {}
-
-        // Extract Disqus props that were supplied to this component
-        DISQUS_CONFIG.forEach(prop => {
-            // prop "shortname" is only necessary for loading the script, not for the config itself
-            if (prop !== 'shortname' && !!this.props[prop]) {
-                props[prop] = this.props[prop]
-            }
-        })
-
-        // If Disqus has already been added, reset it
-        if (typeof DISQUS !== 'undefined') {
-            console.log('DISQUS.reset')
-            DISQUS.reset({
-                reload: true,
-                config: function() {
-                    copyProps(this, props)
-                    this.page.url = window.location.href
-                }
-            })
-        } else {
-            // Otherwise add Disqus to the page
-            window.disqus_config = function() {
-                copyProps(this, props)
-            }
-            this.addDisqusScript()
-        }
-    }
+          ))}
+        </div>
+      </IboxContent>
+    )
+  }
 }
 
 export default DisqusComments
+
+function sortByDateAsc(posts) {
+  posts.sort((a, b) => {
+    return a.createdAt > b.createdAt
+  })
+}
+
+function sortPosts(posts) {
+  sortByDateAsc(posts)
+  posts.forEach(post => {
+    sortPosts(post.posts)
+  })
+
+  return posts
+}
