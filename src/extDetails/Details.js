@@ -13,6 +13,7 @@ import HttpError from '../layout/error/HttpError'
 import LoadingAnimation from '../layout/LoadingAnimation'
 import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
 import { fetchItem } from '../api'
+import './gh-button.css'
 
 const { actions, reducer } = makeTypesActionsReducer('EXT/DETAILS', fetchItem)
 export { reducer }
@@ -116,6 +117,11 @@ export class Details extends Component {
                       )}
                     </div>
 
+                    <div className="github-btn">
+                      <a href={`https://github.com/${user}/${repo}/issues`} className="gh-btn" title="Report Issue">
+                        <i className="fa fa-bug" /> <span className="gh-text">Report Issue</span>
+                      </a>
+                    </div>
                     <iframe
                       title="Github Stars"
                       src={`https://ghbtns.com/github-btn.html?user=${user}&repo=${repo}&type=watch&count=true`}
