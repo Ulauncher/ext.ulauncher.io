@@ -1,0 +1,36 @@
+[
+  {
+    "id": "3569261699",
+    "message": "<p>I like this one! 👍</p>",
+    "createdAt": "2017-10-16T05:11:56Z",
+    "author": "Aleksandr Gornostal",
+    "thread": "6218040765",
+    "posts": []
+  },
+  {
+    "id": "3934004371",
+    "message": "<p>Can I get the same extension for firefox?</p>",
+    "createdAt": "2018-06-07T08:07:27Z",
+    "author": "Sathish",
+    "thread": "6218040765",
+    "posts": []
+  },
+  {
+    "id": "4074859096",
+    "message": "<p>Hello I installed it and I got the following errors</p><p>com.github.ulauncher.ulauncher-timer | 2018-09-03 10:52:44,674 | ERROR | websocket: error() | error from callback &lt;bound method=\"\" client.on_message=\"\" of=\"\" &lt;ulauncher.api.client.client.client=\"\" object=\"\" at=\"\" 0x7f81d97eb890=\"\"&gt;&gt;: on_message() takes exactly 3 arguments (2 given)</p><p>apg:~/ $ Traceback (most recent call last):                                                                           [10:53:02]<br>  File \"/usr/lib/python2.7/site-packages/ulauncher/util/<a href=\"http://SimpleWebSocketServer.py\" rel=\"nofollow noopener\" title=\"SimpleWebSocketServer.py\">SimpleWebSocketServer.py</a>\", line 664, in serveforever<br>    client._handleData()<br>  File \"/usr/lib/python2.7/site-packages/ulauncher/util/<a href=\"http://SimpleWebSocketServer.py\" rel=\"nofollow noopener\" title=\"SimpleWebSocketServer.py\">SimpleWebSocketServer.py</a>\", line 279, in _handleData<br>    raise Exception(\"remote socket closed\")<br>Exception: remote socket closed<br>2018-09-03 10:53:07,666 | ERROR | ulauncher.api.server.ExtensionRunner: _run_process() | Extension \"com.github.ulauncher.ulauncher-timer\" was terminated with code -15</p>",
+    "createdAt": "2018-09-03T07:54:44Z",
+    "author": "ttot11",
+    "thread": "6218040765",
+    "posts": [
+      {
+        "id": "4076497468",
+        "message": "<p>To all who noticed that extensions stopped working,</p><p>Please update python-websocket-client package (python2-websocket-client for some distros) to the latest version (0.51 or higher).</p><p>There was a bug in v0.49 and 0.50</p>",
+        "createdAt": "2018-09-04T07:34:24Z",
+        "author": "Aleksandr Gornostal",
+        "thread": "6218040765",
+        "parent": "4074859096",
+        "posts": []
+      }
+    ]
+  }
+]

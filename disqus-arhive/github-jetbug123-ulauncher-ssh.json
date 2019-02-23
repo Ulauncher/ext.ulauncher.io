@@ -1,0 +1,30 @@
+[
+  {
+    "id": "4186451519",
+    "message": "<p>I am trying to switch from xterm to gnome-terminal but have no success.<br>I am not familiar with python but does anybody know how to fix this?</p><p>Original exception was:<br>Traceback (most recent call last):<br>  File \"/usr/bin/gnome-terminal\", line 3, in &lt;module&gt;<br>    import string<br>  File \"/usr/lib/python3.6/<a href=\"http://string.py\" rel=\"nofollow noopener\" title=\"string.py\">string.py</a>\", line 52, in &lt;module&gt;<br>    import re as _re<br>  File \"/usr/lib/python3.6/<a href=\"http://re.py\" rel=\"nofollow noopener\" title=\"re.py\">re.py</a>\", line 142, in &lt;module&gt;<br>    class RegexFlag(enum.IntFlag):</p>",
+    "createdAt": "2018-11-09T11:58:22Z",
+    "author": "worufu",
+    "thread": "6585520386",
+    "posts": [
+      {
+        "id": "4216066994",
+        "message": "<p>Use '--' instead of '-e' as the Terminal arg for gnome-terminal</p>",
+        "createdAt": "2018-11-28T16:25:17Z",
+        "author": "cgogoel",
+        "thread": "6585520386",
+        "parent": "4186451519",
+        "posts": [
+          {
+            "id": "4216104306",
+            "message": "<p>Thank you for the suggestion, but still the same error.</p><p>These are my settings <a href=\"https://uploads.disquscdn.com/images/ed23c412f3b7d01b5a038bb9264a54dfcad6f7884508766f1ec465a4313b7799.png\" rel=\"nofollow noopener\" title=\"https://uploads.disquscdn.com/images/ed23c412f3b7d01b5a038bb9264a54dfcad6f7884508766f1ec465a4313b7799.png\">https://uploads.disquscdn.c...</a></p>",
+            "createdAt": "2018-11-28T16:48:30Z",
+            "author": "worufu",
+            "thread": "6585520386",
+            "parent": "4216066994",
+            "posts": []
+          }
+        ]
+      }
+    ]
+  }
+]

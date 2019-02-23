@@ -1,0 +1,10 @@
+[
+  {
+    "id": "4109946097",
+    "message": "<p>In case of confusion: There are currently three extensions for hashing. All of them supports the keyword \"hash\" for listing your input hashed with different algorithms and supports md5, sha1 and sha2.<br>* Hash: The first one. Doesn't support individual keywords per algorithm (\"md5 x\") or sha384 (part of the sha2 algorithms, but not really common).<br>* Hash2 (this one): Supports individual keywords per algorithms and sha384. Started off as a PR for Hash<br>* Hash-lambda: Fork of Hash2 with many additional algorithms. Will list all algorithms supported on your system when you use the \"hash\"-keyword. Additionally it adds the keywords blake2s256, blake2b512, md5-sha1, md4, ripemd160 and whirlpool. The extra algorithms are not supported on all platforms, and requires OpenSSL. Unfortunately Ulauncher's result view doesn't handle too many results and will overflow, so you may not be able to see the bottom ones.</p>",
+    "createdAt": "2018-09-23T13:56:03Z",
+    "author": "Albin Larsson",
+    "thread": "6927780373",
+    "posts": []
+  }
+]

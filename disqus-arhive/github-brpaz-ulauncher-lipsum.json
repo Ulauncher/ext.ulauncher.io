@@ -1,0 +1,18 @@
+[
+  {
+    "id": "3970218101",
+    "message": "<p>Can't save the plugin after adding. Saving gives this error \"Unexpected API error. KeyError: com.github.brpaz.ulauncher-lipsum\"</p>",
+    "createdAt": "2018-07-02T08:39:55Z",
+    "author": "Ali Suleiman",
+    "thread": "6709010277",
+    "posts": []
+  },
+  {
+    "id": "3970699786",
+    "message": "<p>Don't forget to install the `lorem` package (`install pip install lorem`). It won't work without it.</p>",
+    "createdAt": "2018-07-02T16:16:17Z",
+    "author": "Tony Vlček",
+    "thread": "6709010277",
+    "posts": []
+  }
+]

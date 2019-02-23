@@ -1,0 +1,73 @@
+[
+  {
+    "id": "3656557122",
+    "message": "<p>It's awesome!</p>",
+    "createdAt": "2017-12-11T05:14:16Z",
+    "author": "Egor",
+    "thread": "6256681088",
+    "posts": []
+  },
+  {
+    "id": "3787201576",
+    "message": "<p>Um, so how do I actually go about installing these extensions.  I tried one of them, it didn't have a readme file worth a damn, so I am lost.</p><p>Note that I am no noob, and can navigate cloning the repos, I just don't see any instructions for installation.</p>",
+    "createdAt": "2018-03-04T22:23:46Z",
+    "author": "Callista Graves",
+    "thread": "6256681088",
+    "posts": [
+      {
+        "id": "3788276160",
+        "message": "<p>If you go to Ulauncher Pref page, you should see the Extensions tab where you just hit the Add extension button and follow the instruction</p>",
+        "createdAt": "2018-03-05T15:49:02Z",
+        "author": "Kay",
+        "thread": "6256681088",
+        "parent": "3787201576",
+        "posts": []
+      },
+      {
+        "id": "3796672591",
+        "message": "<p>I think you are making a good point. There is no information on how to install extensions if you found this website before discovered Extensions tab in Ulauncher preferences.<br>I'm going to make some updates on the website to fix this issue.</p><p>Thanks for bringing this up, btw.</p><p>Aleksandr</p>",
+        "createdAt": "2018-03-10T20:15:26Z",
+        "author": "Aleksandr Gornostal",
+        "thread": "6256681088",
+        "parent": "3787201576",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "3796450377",
+    "message": "<p>Command '['locate','-l','8',u'-r']' return non-zero exit status 1<br>Manjaro XFCE 17.1.6, I can't find the solution!!! help!!!</p>",
+    "createdAt": "2018-03-10T17:23:05Z",
+    "author": "Daniel Fernández",
+    "thread": "6256681088",
+    "posts": [
+      {
+        "id": "3798298973",
+        "message": "<p>This comes to you because you not provide any patten to search for.</p><p>'Command '['locate','-l','8',u'-r']' return non-zero exit status 1' means runs 'locate -l 8 -r' on terminal returns non-zeros (failed).</p>",
+        "createdAt": "2018-03-12T00:38:08Z",
+        "author": "505610414",
+        "thread": "6256681088",
+        "parent": "3796450377",
+        "posts": [
+          {
+            "id": "4008205357",
+            "message": "<p>Can you give a specific example. I have a file located:</p><p>$ which <a href=\"http://pycharm.sh\" rel=\"nofollow noopener\" title=\"pycharm.sh\">pycharm.sh</a><br>/opt/pycharm-2018.2/bin/<a href=\"http://pycharm.sh\" rel=\"nofollow noopener\" title=\"pycharm.sh\">pycharm.sh</a><br>I have tried every option and just get the same error. How would I go about searching and launching this script from uLauncher?</p>",
+            "createdAt": "2018-07-27T00:14:02Z",
+            "author": "Bryan",
+            "thread": "6256681088",
+            "parent": "3798298973",
+            "posts": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3872757539",
+    "message": "<p>is it possible to make launcher find in folders / files without a keyWord? Thanks!</p>",
+    "createdAt": "2018-04-25T22:06:41Z",
+    "author": "Yuri",
+    "thread": "6256681088",
+    "posts": []
+  }
+]

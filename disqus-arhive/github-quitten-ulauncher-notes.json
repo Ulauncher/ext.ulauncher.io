@@ -1,0 +1,36 @@
+[
+  {
+    "id": "3888011277",
+    "message": "<p>Does this extension have any dependencies? Doesnt work for me. When I press 'Save' in the ulauncher preferences, I'm getting an error: <br>Unexpected API error. KeyError: ulauncher-notes-master</p>",
+    "createdAt": "2018-05-06T08:39:49Z",
+    "author": "jasir",
+    "thread": "6638575827",
+    "posts": [
+      {
+        "id": "3925047553",
+        "message": "<p>Yes, you need those python modules:<br>uuid, pyperclip</p>",
+        "createdAt": "2018-05-31T14:38:10Z",
+        "author": "Barak Tawily",
+        "thread": "6638575827",
+        "parent": "3888011277",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "3907141982",
+    "message": "<p>Same error here as well. Running on Ubuntu 18.04</p>",
+    "createdAt": "2018-05-18T21:52:03Z",
+    "author": "Vassilis Chryssos",
+    "thread": "6638575827",
+    "posts": []
+  },
+  {
+    "id": "4188369646",
+    "message": "<p>I have the same error on Arch</p>",
+    "createdAt": "2018-11-10T15:57:17Z",
+    "author": "Ia Rigby",
+    "thread": "6638575827",
+    "posts": []
+  }
+]

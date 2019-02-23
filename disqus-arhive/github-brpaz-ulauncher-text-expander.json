@@ -1,0 +1,20 @@
+[
+  {
+    "id": "4186290320",
+    "message": "<p>Getting an error when I try to enter the Text Expansions Directory and hit \"save\":</p><p>Unexpected API error. KeyError: com.github.brpaz.ulauncher-text-expander</p><p>Anybody have any pointers on how to fix this?</p><p>I already installed python packages using:</p><p>pip install dateparser<br>pip install glob2<br>pip install logging</p>",
+    "createdAt": "2018-11-09T08:58:53Z",
+    "author": "worufu",
+    "thread": "6856991174",
+    "posts": [
+      {
+        "id": "4187359755",
+        "message": "<p>Found the problem/solution: had to restart ulauncher afterwards. Now working fine..</p>",
+        "createdAt": "2018-11-09T21:29:32Z",
+        "author": "worufu",
+        "thread": "6856991174",
+        "parent": "4186290320",
+        "posts": []
+      }
+    ]
+  }
+]

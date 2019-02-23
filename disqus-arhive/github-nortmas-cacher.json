@@ -1,0 +1,38 @@
+[
+  {
+    "id": "3734443632",
+    "message": "<p>do i need a depency? it does not work</p>",
+    "createdAt": "2018-01-30T23:36:50Z",
+    "author": "modnoob",
+    "thread": "6218040674",
+    "posts": [
+      {
+        "id": "3764652332",
+        "message": "<p>I had the same issue, if you are using a locale different from English try this: <a href=\"https://github.com/leinardi/ulauncher-kill\" rel=\"nofollow noopener\" title=\"https://github.com/leinardi/ulauncher-kill\">https://github.com/leinardi...</a></p><p>I got issues parsing float with Italian locale since we use commas to separate decimals instead of dots.</p><p>BTW I made a PR to fix the problem also on the main repo: <a href=\"https://github.com/Ulauncher/ulauncher-kill/pull/3\" rel=\"nofollow noopener\" title=\"https://github.com/Ulauncher/ulauncher-kill/pull/3\">https://github.com/Ulaunche...</a></p>",
+        "createdAt": "2018-02-18T18:39:11Z",
+        "author": "Roberto Leinardi",
+        "thread": "6218040674",
+        "parent": "3734443632",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "3738439540",
+    "message": "<p>@modnoob:disqus Please read the installation process on <a href=\"https://github.com/nortmas/cacher\" rel=\"nofollow noopener\" title=\"https://github.com/nortmas/cacher\">https://github.com/nortmas/...</a></p>",
+    "createdAt": "2018-02-02T07:00:27Z",
+    "author": "Dmitriy Antonenko",
+    "thread": "6218040674",
+    "posts": [
+      {
+        "id": "3741918827",
+        "message": "<p>i meant for process killer. somhow the comment section is doubled</p>",
+        "createdAt": "2018-02-04T10:39:49Z",
+        "author": "modnoob",
+        "thread": "6218040674",
+        "parent": "3738439540",
+        "posts": []
+      }
+    ]
+  }
+]

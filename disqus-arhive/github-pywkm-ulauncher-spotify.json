@@ -1,0 +1,38 @@
+[
+  {
+    "id": "4188366669",
+    "message": "<p>Unexpected API error. KeyError: com.github.pywkm.ulauncher-spotify on Arch Manjaro</p>",
+    "createdAt": "2018-11-10T15:55:00Z",
+    "author": "Ia Rigby",
+    "thread": "6773514594",
+    "posts": [
+      {
+        "id": "4188419865",
+        "message": "<p>Just tried. All good</p>",
+        "createdAt": "2018-11-10T16:35:41Z",
+        "author": "Augustris",
+        "thread": "6773514594",
+        "parent": "4188366669",
+        "posts": [
+          {
+            "id": "4189955264",
+            "message": "<p>Still not for me. Most other extensions are working</p>",
+            "createdAt": "2018-11-11T18:32:51Z",
+            "author": "Ia Rigby",
+            "thread": "6773514594",
+            "parent": "4188419865",
+            "posts": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4189023211",
+    "message": "<p>Wow, this looks like the most useful extension out there. Thanks!</p>",
+    "createdAt": "2018-11-11T00:51:20Z",
+    "author": "Tony Vlček",
+    "thread": "6773514594",
+    "posts": []
+  }
+]

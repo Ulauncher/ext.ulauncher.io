@@ -1,0 +1,10 @@
+[
+  {
+    "id": "4236680223",
+    "message": "<p>Would it be feasible to filter the listed available tmux sessions by name? Maybe with the same search/filter engine used by Ulauncher?<br>E.g. writing `tmux i3` should show only those sessions that contain i3 in the name.</p>",
+    "createdAt": "2018-12-12T10:30:14Z",
+    "author": "Jesus Briales",
+    "thread": "6609456261",
+    "posts": []
+  }
+]

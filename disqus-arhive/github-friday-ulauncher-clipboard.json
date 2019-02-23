@@ -1,0 +1,47 @@
+[
+  {
+    "id": "4254446888",
+    "message": "<p>This raises a API Error, fix this, pls</p>",
+    "createdAt": "2018-12-24T00:34:20Z",
+    "author": "Reni Alkimin",
+    "thread": "7111641518",
+    "posts": [
+      {
+        "id": "4254454704",
+        "message": "<p>Please create a github issue with more specific details or it's not possible to help.</p>",
+        "createdAt": "2018-12-24T00:44:21Z",
+        "author": "Albin Larsson",
+        "thread": "7111641518",
+        "parent": "4254446888",
+        "posts": []
+      },
+      {
+        "id": "4341058340",
+        "message": "<p>For anyone reading this: This extension goes above and beyond to work for people with different clipboard managers (and will even download one if you don't have any and don't select any specific one). It also shows desktop notification warnings if you select a specific one that you haven't installed (for maximum user friendliness). I've handled all errors/cases that I could think of. Vague and rude comments like this is an insult to developers who carefully craft their work and invest time in something they share for free. Writing or upvoting comments like this is staining the reputation of the extension. You should <b>never</b> report bugs like this since the information will not go away. Just because it doesn't work for you it doesn't mean it doesn't work. It could be that you found an issue. Unfortunately developers cannot test all different workflows and systems. Just telling them to \"fix this pls\" assumes the error is obvious enough so you don't have to explain anything, and that the author agrees with you that it is an error and should be fixed. This is assuming <b>way too much</b>. Instead, create a github issue and output the full log of the error including <b>the actual error, <u>not just the error type</u></b> and the line of code and file <b>or it will not be possible to help you</b>. If you do that and it's a real problem/error and the developer fixes it then you helped the community. After that the error can be closed and no one will see it since they don't need to any more (unlike these comments). Also: If you are having issues adding an extension to Ulauncher like I suspect ( see this issue: <a href=\"https://github.com/Ulauncher/Ulauncher/issues/192\" rel=\"nofollow noopener\" title=\"https://github.com/Ulauncher/Ulauncher/issues/192\">https://github.com/Ulaunche...</a> ), then <b>it's a Ulauncher issue</b>. An extension <b>cannot run before you have added it</b>. It's logically impossible. If you want to watch a movie, but your bluray/dvd player is broken, you don't blame the movie studio and write negative comments about the movie, do you? (sorry, but not sorry).</p>",
+        "createdAt": "2019-02-16T23:34:32Z",
+        "author": "Albin Larsson",
+        "thread": "7111641518",
+        "parent": "4254446888",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "4340567115",
+    "message": "<p>This extention is really useful, thanks for sharing with the community.</p>",
+    "createdAt": "2019-02-16T16:43:38Z",
+    "author": "Henry F.",
+    "thread": "7111641518",
+    "posts": [
+      {
+        "id": "4341093732",
+        "message": "<p>Thank you! I actually put more work on things I don't really need myself, like different clipboard managers and showing proper warnings, since I thought this was important functionality that many others would want to use. So I'm glad there's at least one other person enjoying it ;)</p>",
+        "createdAt": "2019-02-17T00:12:28Z",
+        "author": "Albin Larsson",
+        "thread": "7111641518",
+        "parent": "4340567115",
+        "posts": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "4141274268",
+    "message": "<p>This plugin requires `wmctrl` package to be installed on your system. Run `sudo apt install wmctrl` to install it.</p>",
+    "createdAt": "2018-10-12T09:28:56Z",
+    "author": "kira san",
+    "thread": "6954807535",
+    "posts": [
+      {
+        "id": "4147844010",
+        "message": "<p>`sudo pacman -S wmctrl` for Archlinux</p>",
+        "createdAt": "2018-10-16T15:59:29Z",
+        "author": "Cameron White",
+        "thread": "6954807535",
+        "parent": "4141274268",
+        "posts": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "4233863114",
+    "message": "<p>It doesn't work, no matter what i typed. pleased fix it</p>",
+    "createdAt": "2018-12-10T16:50:22Z",
+    "author": "Jasperstory",
+    "thread": "7068507214",
+    "posts": []
+  },
+  {
+    "id": "4244864520",
+    "message": "<p>This app is discontinued ¿? Because file search doesn't work and it is very important question. bad luck because I liked it a lot</p>",
+    "createdAt": "2018-12-17T12:31:51Z",
+    "author": "Fee",
+    "thread": "7068507214",
+    "posts": [
+      {
+        "id": "4283296734",
+        "message": "<p>This is a separate extension, It's not developed by Ulauncher. You should go to the github page for extensions and follow their instructions, since some need additional dependencies etc.</p>",
+        "createdAt": "2019-01-13T10:43:28Z",
+        "author": "Albin Larsson",
+        "thread": "7068507214",
+        "parent": "4244864520",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "4248107202",
+    "message": "<p>You have to make sure that fd is installed on your system for this to work. However, for some reason it is EXTREMELY slow through Ulauncher. Example: I searched for a file using \"fd my_file.txt /\" in the terminal, and fd found it in less than a second. Doing the same thing through Ulauncher results in me waiting many minutes for the result to show up, if it does at all. Makes this extension unusable -- please fix.</p>",
+    "createdAt": "2018-12-19T14:04:02Z",
+    "author": "dain",
+    "thread": "7068507214",
+    "posts": [
+      {
+        "id": "4283297709",
+        "message": "<p>It should be fixed now: <a href=\"https://github.com/brpaz/ulauncher-file-search/pull/5\" rel=\"nofollow noopener\" title=\"https://github.com/brpaz/ulauncher-file-search/pull/5\">https://github.com/brpaz/ul...</a></p>",
+        "createdAt": "2019-01-13T10:44:53Z",
+        "author": "Albin Larsson",
+        "thread": "7068507214",
+        "parent": "4248107202",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "4272389108",
+    "message": "<p>Testando, obrigado!</p>",
+    "createdAt": "2019-01-06T18:16:36Z",
+    "author": "Marcos Cardoso",
+    "thread": "7068507214",
+    "posts": []
+  },
+  {
+    "id": "4283292541",
+    "message": "<p>The issue ( <a href=\"https://github.com/brpaz/ulauncher-file-search/issues/1\" rel=\"nofollow noopener\" title=\"https://github.com/brpaz/ulauncher-file-search/issues/1\">https://github.com/brpaz/ul...</a> ) should be fixed now, but please don't post here if you are having problem. Go to the github issue tracker.</p>",
+    "createdAt": "2019-01-13T10:37:12Z",
+    "author": "Albin Larsson",
+    "thread": "7068507214",
+    "posts": []
+  }
+]

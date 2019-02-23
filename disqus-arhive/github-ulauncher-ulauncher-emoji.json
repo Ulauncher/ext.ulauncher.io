@@ -1,0 +1,10 @@
+[
+  {
+    "id": "4343351477",
+    "message": "<p>This is very nice and useful, but I wonder if it could be extended to allow any unicode character by name. E.g., if I search for \"big solidus\", it would give me ⧸, which isn't an emoji, but also can't be typed with a standard keyboard, so being able to get it through ulancher with emojis would be helpful.</p>",
+    "createdAt": "2019-02-18T17:42:15Z",
+    "author": "Dan Jones",
+    "thread": "6216889346",
+    "posts": []
+  }
+]

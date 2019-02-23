@@ -1,0 +1,28 @@
+[
+  {
+    "id": "3927487937",
+    "message": "<p>Nice extension. Thanks!</p><p>Would be great if it could also do custom urls. Not sure if slyme API supports that.</p><p>e.g. if typing: url <a href=\"https://ext.ulauncher.io/-/github-wallace11-ulauncher-url-shortener\" rel=\"nofollow noopener\" title=\"https://ext.ulauncher.io/-/github-wallace11-ulauncher-url-shortener\">https://ext.ulauncher.io/-/...</a> lurl</p><p>could make a custom url: <a href=\"https://5ly.me/lurl\" rel=\"nofollow noopener\" title=\"https://5ly.me/lurl\">https://5ly.me/lurl</a></p>",
+    "createdAt": "2018-06-02T08:36:51Z",
+    "author": "jasir",
+    "thread": "6677191939",
+    "posts": [
+      {
+        "id": "3927877362",
+        "message": "<p>Hey,<br>I've updated the extension to work as you described!<br>Enjoy ;)</p>",
+        "createdAt": "2018-06-02T17:18:15Z",
+        "author": "11wallace11",
+        "thread": "6677191939",
+        "parent": "3927487937",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "4320260797",
+    "message": "<p>when i click save it says : Unexpected API error. KeyError: com.github.wallace11.ulauncher-url-shortener<br>what's the problem???</p>",
+    "createdAt": "2019-02-03T13:17:11Z",
+    "author": "Amaziɣ Agrawliw",
+    "thread": "6677191939",
+    "posts": []
+  }
+]

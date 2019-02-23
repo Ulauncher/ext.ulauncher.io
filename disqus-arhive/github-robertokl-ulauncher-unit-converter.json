@@ -1,0 +1,93 @@
+[
+  {
+    "id": "3734445299",
+    "message": "<p>the addon does not work at all for me. typing in u does not show the converter</p>",
+    "createdAt": "2018-01-30T23:38:15Z",
+    "author": "modnoob",
+    "thread": "6323196040",
+    "posts": [
+      {
+        "id": "3740279841",
+        "message": "<p>looks like it requires scrapy library: sudo pip install scrapy</p>",
+        "createdAt": "2018-02-03T11:51:21Z",
+        "author": "Aleksandr Gornostal",
+        "thread": "6323196040",
+        "parent": "3734445299",
+        "posts": [
+          {
+            "id": "3740783908",
+            "message": "<p>I installed scrapy on Ubuntu 16.04 using this instruction <a href=\"http://www.scrapingauthority.com/2016/08/06/install-scrapy-ubuntu/\" rel=\"nofollow noopener\" title=\"http://www.scrapingauthority.com/2016/08/06/install-scrapy-ubuntu/\">http://www.scrapingauthorit...</a> and I still can't make it work. I get a \"loading\" and then nothing.  <a href=\"https://uploads.disquscdn.com/images/09f73a948c3ed010bd32b6c025bfe2fd2cc9babb3071abb49034da38b46e1b4b.png\" rel=\"nofollow noopener\" title=\"https://uploads.disquscdn.com/images/09f73a948c3ed010bd32b6c025bfe2fd2cc9babb3071abb49034da38b46e1b4b.png\">https://uploads.disquscdn.c...</a></p>",
+            "createdAt": "2018-02-03T17:08:12Z",
+            "author": "Tio",
+            "thread": "6323196040",
+            "parent": "3740279841",
+            "posts": [
+              {
+                "id": "3741919339",
+                "message": "<p>i did the same on arch..... and the same result</p>",
+                "createdAt": "2018-02-04T10:40:42Z",
+                "author": "modnoob",
+                "thread": "6323196040",
+                "parent": "3740783908",
+                "posts": []
+              },
+              {
+                "id": "3769558291",
+                "message": "<p>Update: it's working now. I have no idea why, maybe they updated the extension. Thank you for it guys!</p>",
+                "createdAt": "2018-02-21T19:15:19Z",
+                "author": "Tio",
+                "thread": "6323196040",
+                "parent": "3740783908",
+                "posts": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3900840070",
+    "message": "<p>This plugin scrapes data from a simple Google search to display you the information. <br>It requires scrapy library for Python (<a href=\"https://scrapy.org\" rel=\"nofollow noopener\" title=\"https://scrapy.org\">https://scrapy.org</a>), and won't work without it.<br>While it's a nice idea, I find it extremely unreliable and hard to use.<br>Not recommended.</p>",
+    "createdAt": "2018-05-14T22:13:08Z",
+    "author": "11wallace11",
+    "thread": "6323196040",
+    "posts": []
+  },
+  {
+    "id": "3970217510",
+    "message": "<p>Can't save the plugin after adding. Saving gives this error \"Unexpected API error. KeyError: com.github.robertokl.ulauncher-unit-converter\"</p>",
+    "createdAt": "2018-07-02T08:38:56Z",
+    "author": "Ali Suleiman",
+    "thread": "6323196040",
+    "posts": [
+      {
+        "id": "3971680047",
+        "message": "<p>try to run \"sudo pip install scrapy\" it's an implicit requirement for the extension</p>",
+        "createdAt": "2018-07-03T05:44:26Z",
+        "author": "Aleksandr Gornostal",
+        "thread": "6323196040",
+        "parent": "3970217510",
+        "posts": []
+      }
+    ]
+  },
+  {
+    "id": "4160002321",
+    "message": "<p>It cannot use alias command... plz support</p>",
+    "createdAt": "2018-10-24T11:15:17Z",
+    "author": "Zhuokun Yang",
+    "thread": "6323196040",
+    "posts": [
+      {
+        "id": "4343376728",
+        "message": "<p>Aliases only work in interactive shells. That wouldn't be possible here. That's a bash limitation.</p>",
+        "createdAt": "2019-02-18T17:58:33Z",
+        "author": "Dan Jones",
+        "thread": "6323196040",
+        "parent": "4160002321",
+        "posts": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "4186284886",
+    "message": "<p>Hi! Love all of Bruno Paz extensions!</p><p>Currently sadly I am struggling with installing hawkeye. Running on Ubuntu 18.10</p><p>I have no experience with python but I thought I was able to install all required packages. E.g:</p><p>pip install markdown<br>Collecting markdown<br>  Using cached <a href=\"https://files.pythonhosted.org/packages/7a/6b/5600647404ba15545ec37d2f7f58844d690baf2f81f3a60b862e48f29287/Markdown-3.0.1-py2.py3-none-any.whl\" rel=\"nofollow noopener\" title=\"https://files.pythonhosted.org/packages/7a/6b/5600647404ba15545ec37d2f7f58844d690baf2f81f3a60b862e48f29287/Markdown-3.0.1-py2.py3-none-any.whl\">https://files.pythonhosted....</a><br>Installing collected packages: markdown<br>Successfully installed markdown-3.0.1</p><p>If I try running hawkeye I get the following exception:</p><p>python3 <a href=\"http://main.py\" rel=\"nofollow noopener\" title=\"main.py\">main.py</a> \"<a href=\"https://www.google.com\" rel=\"nofollow noopener\" title=\"https://www.google.com\">https://www.google.com</a>\"<br>/Downloads/hawkeye/hawkeye/<a href=\"http://main_window.py\" rel=\"nofollow noopener\" title=\"main_window.py\">main_window.py</a>:8: PyGIWarning: Gtk was imported without specifying a version first. Use gi.require_version('Gtk', '3.0') before import to ensure that the right version gets loaded.<br>  from gi.repository import Gtk, Gdk, Gio<br>Traceback (most recent call last):<br>  File \"<a href=\"http://main.py\" rel=\"nofollow noopener\" title=\"main.py\">main.py</a>\", line 3, in &lt;module&gt;<br>    from hawkeye.__main__ import *<br>  File \"/Downloads/hawkeye/hawkeye/<a href=\"http://__main__.py\" rel=\"nofollow noopener\" title=\"__main__.py\">__main__.py</a>\", line 7, in &lt;module&gt;<br>    from hawkeye.main_window import MainWindow<br>  File \"/Downloads/hawkeye/hawkeye/<a href=\"http://main_window.py\" rel=\"nofollow noopener\" title=\"main_window.py\">main_window.py</a>\", line 11, in &lt;module&gt;<br>    from hawkeye.viewer.markdown import MarkdownViewer<br>  File \"/Downloads/hawkeye/hawkeye/viewer/<a href=\"http://markdown.py\" rel=\"nofollow noopener\" title=\"markdown.py\">markdown.py</a>\", line 6, in &lt;module&gt;<br>    from markdown import Markdown<br>ModuleNotFoundError: No module named 'markdown'</p><p>Does anybody know how I can make hawkeye work? Or is there any recommended alternative to use in cheats extension?</p><p>Any help much appreciated.</p>",
+    "createdAt": "2018-11-09T08:51:57Z",
+    "author": "worufu",
+    "thread": "6854656169",
+    "posts": [
+      {
+        "id": "4187358856",
+        "message": "<p>Found the problem/solution: had to restart ulauncher afterwards. Now working fine.</p>",
+        "createdAt": "2018-11-09T21:28:57Z",
+        "author": "worufu",
+        "thread": "6854656169",
+        "parent": "4186284886",
+        "posts": []
+      }
+    ]
+  }
+]
