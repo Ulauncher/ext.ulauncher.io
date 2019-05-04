@@ -1,16 +1,7 @@
-# Development
+## Setup Development Environment
 
-1. Create .env.local file with next options:
-```
-REACT_APP_AUTH0_CLIENT_ID=<id>
-REACT_APP_AUTH0_DOMAIN=<yourdomain>.auth0.com
-REACT_APP_API_BASE_URL=<api.endpoint>
-```
-
-2. Install dependencies
-```
-yarn install
-```
+1. Copy `.env.dev` to `.env` or set your own env vars
+2. Install dependencies: `yarn install`
 
 ## Run dev server
 ```
