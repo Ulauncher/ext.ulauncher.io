@@ -1,7 +1,6 @@
 import authService from '../auth0/AuthService'
 import 'isomorphic-fetch'
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 const sleep = ms => new Promise(res => setTimeout(res, ms))
 
 const fetchApi = async (urlPart, options = {}, contentType = 'application/json') => {
@@ -20,7 +19,7 @@ const fetchApi = async (urlPart, options = {}, contentType = 'application/json')
 
   let resp
   try {
-    resp = await fetch(`${API_BASE_URL}${urlPart}`, options)
+    resp = await fetch(`${process.env.REACT_APP_API_BASE_URL}${urlPart}`, options)
   } catch (e) {
     const error = { status: 'error' }
     throw error

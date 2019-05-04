@@ -1,7 +1,7 @@
 import auth0Client, { WebAuth } from 'auth0-js'
 
-const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID
-const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN
+const AUTH0_CLIENT_ID = `${process.env.REACT_APP_AUTH0_CLIENT_ID}`
+const AUTH0_DOMAIN = `${process.env.REACT_APP_AUTH0_DOMAIN}`
 const audience = `https://${AUTH0_DOMAIN}/userinfo`
 const scope = 'openid profile'
 const auth0 = new WebAuth({
