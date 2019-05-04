@@ -100,7 +100,8 @@ export class EditExtension extends React.Component {
                     <Button bsStyle="primary" type="submit" disabled={submitting}>
                       {submitting && (
                         <span>
-                          <i className="fa fa-spinner fa-spin" />&nbsp;
+                          <i className="fa fa-spinner fa-spin" />
+                          &nbsp;
                         </span>
                       )}
                       Save
@@ -108,11 +109,13 @@ export class EditExtension extends React.Component {
                     <Button onClick={this.onDelete} disabled={delState.fetching}>
                       {delState.fetching ? (
                         <span>
-                          <i className="fa fa-spinner fa-spin" />&nbsp;
+                          <i className="fa fa-spinner fa-spin" />
+                          &nbsp;
                         </span>
                       ) : (
                         <span>
-                          <i className="fa fa-minux" />&nbsp;
+                          <i className="fa fa-minux" />
+                          &nbsp;
                         </span>
                       )}
                       Remove
@@ -152,7 +155,10 @@ const mapDispatchToProps = dispatch => ({
   toastr: bindActionCreators(toastrActions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(
   reduxForm({
     form: 'initializeFromState'
   })(EditExtension)

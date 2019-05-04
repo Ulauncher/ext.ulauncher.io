@@ -61,7 +61,8 @@ class Step2 extends React.Component {
         <Col smOffset={2} sm={10}>
           {error && (
             <Alert bsStyle="danger">
-              <i className="fa fa-exclamation-triangle" />&nbsp;{error}
+              <i className="fa fa-exclamation-triangle" />
+              &nbsp;{error}
             </Alert>
           )}
           <FormGroup>
@@ -71,7 +72,8 @@ class Step2 extends React.Component {
             <Button type="submit" bsStyle="primary" disabled={isFetching || !this.props.screenshots.images}>
               {isFetching && (
                 <span>
-                  <i className="fa fa-spin fa-spinner" />&nbsp;
+                  <i className="fa fa-spin fa-spinner" />
+                  &nbsp;
                 </span>
               )}
               Submit
@@ -92,4 +94,9 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ stepBack, submitExtension }, dispatch)
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Step2))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Step2)
+)

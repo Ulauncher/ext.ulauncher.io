@@ -19,7 +19,8 @@ export class ExtensionGrid extends React.Component {
     if (error) {
       return (
         <IboxContent title="Error">
-          <i className="fa fa-exclamation-triangle" />&nbsp;{error}
+          <i className="fa fa-exclamation-triangle" />
+          &nbsp;{error}
         </IboxContent>
       )
     }

@@ -31,4 +31,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(auth0Actions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthCallback)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuthCallback)

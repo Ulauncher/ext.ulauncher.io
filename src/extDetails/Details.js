@@ -152,8 +152,9 @@ export class Details extends Component {
             </div>
           </div>
         </div>
-        {comments &&
-        showComments && <DisqusComments comments={comments} githubIssuesUrl={githubIssuesUrl} extId={item.ID} />}
+        {comments && showComments && (
+          <DisqusComments comments={comments} githubIssuesUrl={githubIssuesUrl} extId={item.ID} />
+        )}
       </Layout>
     )
   }
@@ -168,4 +169,9 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 })
 
-export default withComments(connect(mapStateToProps, mapDispatchToProps)(Details))
+export default withComments(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Details)
+)

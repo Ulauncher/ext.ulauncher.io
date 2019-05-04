@@ -83,4 +83,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ScreenshotDropzone)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ScreenshotDropzone)
