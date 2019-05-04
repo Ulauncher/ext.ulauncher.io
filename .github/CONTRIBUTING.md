@@ -1,0 +1,1 @@
+Please read [Code Contribution section](https://github.com/Ulauncher/ext.ulauncher.io/blob/dev/README.md) in the README file

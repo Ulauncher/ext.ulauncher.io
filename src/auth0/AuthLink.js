@@ -24,4 +24,9 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ login, logout }, dispatch)
 })
 
-export default withRouter(connect(() => ({}), mapDispatchToProps)(AuthLink))
+export default withRouter(
+  connect(
+    () => ({}),
+    mapDispatchToProps
+  )(AuthLink)
+)

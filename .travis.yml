@@ -1,11 +1,11 @@
-language: python
-services:
-  - docker
+language: node_js
+node_js:
+  - "8"
 script:
-  - ./build-utils/build.sh
-branches:
-  only:
-  - master
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" == "master" ]; then
+      ./build-utils/build.sh
+    fi
 deploy:
   provider: s3
   access_key_id: AKIAJ6QX6CRNDOW4UNCA
@@ -14,5 +14,6 @@ deploy:
   bucket: ext.ulauncher.io
   region: us-east-2
   local-dir: build
+  branch: master
   on:
     repo: Ulauncher/ext.ulauncher.io

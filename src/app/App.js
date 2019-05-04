@@ -73,4 +73,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ renewAuth0Session }, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

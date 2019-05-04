@@ -41,7 +41,13 @@ export default function withComments(WrappedComponent) {
     actions: bindActionCreators(actions, dispatch)
   })
 
-  return compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(WithComments)
+  return compose(
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    ),
+    withRouter
+  )(WithComments)
 }
 
 function getDisplayName(WrappedComponent) {

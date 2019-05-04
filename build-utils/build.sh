@@ -1,13 +1,30 @@
 #!/bin/bash
 
+set -e
+
 cd `dirname $0`
 cd ..
 
-docker run \
-    --rm \
-    -v $(pwd):/root/ulauncher \
-    -e NODE_ENV=production \
-    -e CI=true \
-    --env-file .env.prod \
-    node:8-alpine \
-    sh -c "cd /root/ulauncher && yarn install && yarn test && yarn build && rm -rf node_modules"
+echo
+echo ">>> Installing dependencies <<<"
+echo
+
+yarn
+
+echo
+echo ">>> Running unit tests <<<"
+echo
+
+CI=true yarn test
+
+echo
+echo ">>> Checking formatting <<<"
+echo
+
+yarn run check-formatting
+
+echo
+echo ">>> Creating a build <<<"
+echo
+
+yarn run build

@@ -43,4 +43,9 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Browse))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Browse)
+)
