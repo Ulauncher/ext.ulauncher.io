@@ -41,7 +41,7 @@ export function validateExtensionUrl(url) {
         throw e
       }
 
-      return api.checkManifest(url)
+      return api.checkProject(url)
     })()
   }
 }

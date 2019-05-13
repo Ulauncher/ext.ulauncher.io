@@ -47,8 +47,8 @@ const fetchApi = async (urlPart, options = {}, contentType = 'application/json')
   }
 }
 
-export function checkManifest(url) {
-  return fetchApi(`/check-manifest?url=${url}`, { auth: true })
+export function checkProject(url) {
+  return fetchApi(`/validate-project?url=${url}`, { auth: true })
 }
 
 export function uploadImages(formData) {
