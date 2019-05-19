@@ -35,7 +35,7 @@
     "slick-carousel": "^1.7.1"
   },
   "scripts": {
-    "start": "HOST=0.0.0.0 PORT=3001 BROWSER=none react-scripts start",
+    "start": "HOST=0.0.0.0 BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
