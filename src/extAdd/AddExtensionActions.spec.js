@@ -2,7 +2,7 @@ import { submitExtension, validateExtensionUrl } from './AddExtensionActions'
 import * as api from '../api'
 
 jest.mock('../api', () => ({
-  checkManifest: jest.fn(),
+  checkProject: jest.fn(),
   submitExtension: jest.fn(() =>
     Promise.resolve({
       data: {
@@ -62,16 +62,16 @@ it('submitExtension() throws if api.submitExtension() throws', async () => {
  * validateExtensionUrl
  */
 
-it('validateExtensionUrl() calls api.checkManifest()', async () => {
+it('validateExtensionUrl() calls api.checkProject()', async () => {
   const url = 'https://github.com/user/project'
   await validateExtensionUrl(url).promise
-  expect(api.checkManifest).toHaveBeenCalledWith(url)
+  expect(api.checkProject).toHaveBeenCalledWith(url)
 })
 
-it('validateExtensionUrl() returns result of api.checkManifest()', async () => {
+it('validateExtensionUrl() returns result of api.checkProject()', async () => {
   const url = 'https://github.com/user/project'
   const resp = { success: true }
-  api.checkManifest.mockReturnValue(resp)
+  api.checkProject.mockReturnValue(resp)
   expect(validateExtensionUrl(url).payload).resolves.toEqual(resp)
 })
 
@@ -85,6 +85,6 @@ it('validateExtensionUrl() throws "Invalid Github URL"', async () => {
 it('validateExtensionUrl() throws "Invalid Github URL"', async () => {
   const url = 'https://github.com/user/project'
   const resp = { status: 500, description: 'server error' }
-  api.checkManifest.mockImplementation(() => Promise.reject(resp))
+  api.checkProject.mockImplementation(() => Promise.reject(resp))
   expect(validateExtensionUrl(url).payload).rejects.toEqual(resp)
 })
