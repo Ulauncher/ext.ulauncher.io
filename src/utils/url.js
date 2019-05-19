@@ -11,7 +11,7 @@ export function getQueryParams(queryString) {
 export function buildQueryString(obj) {
   var str = []
   for (var p in obj)
-    if (obj.hasOwnProperty(p)) {
+    if (obj.hasOwnProperty(p) && obj[p] !== undefined) {
       str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]))
     }
   return str.join('&')

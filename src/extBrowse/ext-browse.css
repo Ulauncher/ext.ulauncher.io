@@ -1,24 +1,36 @@
 .ext-filters {
-  height: 45px;
+  min-height: 45px;
   display: flex;
   align-items: center;
   white-space: nowrap;
   flex-direction: column;
   margin-bottom: 20px;
 }
-.ext-filters .filter-label {
+.ext-filters .filter-label,
+.ext-filters .sort-label {
   font-size: 1.1em;
 }
-.ext-filters .version-filter {
+.ext-filters .version-filter,
+.ext-filters .sorting-select {
   width: 200px;
+}
+.ext-filters .sort-label {
+  margin-top: 20px;
 }
 @media only screen and (min-device-width: 800px) {
   .ext-filters {
     flex-direction: row;
-    padding-right: 10px;
     margin-bottom: 20px;
   }
-  .ext-filters .filter-label {
+  .ext-filters .filter-label,
+  .ext-filters .sort-label {
     padding-right: 10px;
+  }
+  .ext-filters .sort-label {
+    margin-top: 0;
+  }
+  .ext-filters .sort-label {
+    text-align: right;
+    flex: 1 0 0;
   }
 }
