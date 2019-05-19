@@ -1,6 +1,8 @@
 import authService from '../auth0/AuthService'
 import 'isomorphic-fetch'
 
+import { buildQueryString } from '../utils/url'
+
 const sleep = ms => new Promise(res => setTimeout(res, ms))
 
 const fetchApi = async (urlPart, options = {}, contentType = 'application/json') => {
@@ -79,8 +81,8 @@ export function editExtension(id, data) {
   })
 }
 
-export function fetchItems() {
-  return fetchApi('/extensions')
+export function fetchItems(options) {
+  return fetchApi(`/extensions?${buildQueryString(options)}`)
 }
 
 export function fetchMyItems() {

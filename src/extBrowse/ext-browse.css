@@ -1,0 +1,24 @@
+.ext-filters {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.ext-filters .filter-label {
+  font-size: 1.1em;
+}
+.ext-filters .version-filter {
+  width: 200px;
+}
+@media only screen and (min-device-width: 800px) {
+  .ext-filters {
+    flex-direction: row;
+    padding-right: 10px;
+    margin-bottom: 20px;
+  }
+  .ext-filters .filter-label {
+    padding-right: 10px;
+  }
+}
