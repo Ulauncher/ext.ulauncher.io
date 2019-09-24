@@ -90,14 +90,14 @@ class Browse extends Component {
         <div className="ext-filters">
           <div className="filter-label">Extension API version</div>
           <FormControl
-            defaultValue={query.api_version === undefined ? '1.0.0' : query.api_version}
+            defaultValue={query.api_version === undefined ? '2.0.0' : query.api_version}
             onChange={this.onAPIVersionSelect}
             className="version-filter"
             componentClass="select"
           >
-            <option value="">Any</option>
-            <option value="1.0.0">v1.0.0 (Ulauncher v4)</option>
             <option value="2.0.0">v2.0.0 (Ulauncher v5)</option>
+            <option value="1.0.0">v1.0.0 (Ulauncher v4)</option>
+            <option value="">Any</option>
           </FormControl>
           <div className="sort-label">Sort by</div>
           <FormControl
