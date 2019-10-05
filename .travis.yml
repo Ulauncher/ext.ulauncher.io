@@ -4,6 +4,12 @@ node_js:
 script:
   - |
     if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" == "master" ]; then
+      if [ "$TRAVIS_BRANCH" == "master" ]; then
+        mv .env.prod .env
+      fi
+      if [ "$TRAVIS_BRANCH" == "dev" ]; then
+        mv .env.dev .env
+      fi
       ./build-utils/build.sh
     fi
 deploy:
