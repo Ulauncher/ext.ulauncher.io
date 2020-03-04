@@ -5488,6 +5488,7 @@ del {
 .product-box {
   padding: 0;
   border: 1px solid #e7eaec;
+  transition: all 0.3s ease-in-out;
 }
 .product-box:hover,
 .product-box.active {
