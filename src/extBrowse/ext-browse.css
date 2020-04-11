@@ -13,6 +13,7 @@
 .ext-filters .version-filter,
 .ext-filters .sorting-select {
   width: 200px;
+  cursor: pointer;
 }
 .ext-filters .sort-label {
   margin-top: 20px;
