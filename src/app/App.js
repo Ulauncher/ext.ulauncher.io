@@ -2,7 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import ReduxToastr from 'react-redux-toastr'
 
 import Browse from '../extBrowse/Browse'

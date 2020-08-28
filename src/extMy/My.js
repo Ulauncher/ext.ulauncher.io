@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { actions as toastrActions } from 'react-redux-toastr'
 
 import Layout from '../layout/Layout'
