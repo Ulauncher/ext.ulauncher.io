@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Layout from '../layout/Layout'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Step1 from './Step1'
 import Step2 from './Step2'
 import IboxContent from '../layout/IboxContent'

@@ -14,7 +14,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { unregister } from './registerServiceWorker'
 import reducer from './app/reducers'
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(promiseMiddleware())))
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(promiseMiddleware)));
 const render = App => {
   ReactDOM.render(
     <Provider store={store}>

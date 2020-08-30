@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Layout from './Layout'
 import IboxContent from './IboxContent'
 import AuthLink from '../auth0/AuthLink'

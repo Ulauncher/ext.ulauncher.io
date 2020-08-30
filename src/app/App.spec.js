@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { shallow } from 'enzyme'
 import { App } from './App'
 import Browse from '../extBrowse/Browse'

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Layout from '../layout/Layout'
 import IboxContent from '../layout/IboxContent'
 import extPrefs from './ext-prefs.png'
