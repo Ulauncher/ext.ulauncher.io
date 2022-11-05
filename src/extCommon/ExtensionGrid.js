@@ -5,7 +5,7 @@ import IboxContent from '../layout/IboxContent'
 
 export class ExtensionGrid extends React.Component {
   render() {
-    const { error, isFetching, items, showLoadMore, currentUser } = this.props
+    const { error, isFetching, items, showLoadMore, onLoadMore, currentUser } = this.props
 
     if (isFetching) {
       return (
@@ -70,7 +70,7 @@ export class ExtensionGrid extends React.Component {
 
         {showLoadMore && (
           <div className="row text-center m-b">
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-primary" onClick={onLoadMore}>
               <i className="fa fa-refresh" /> Load more
             </button>
           </div>

@@ -6,13 +6,9 @@ import { FormControl } from 'react-bootstrap'
 import Helmet from 'react-helmet'
 import Layout from '../layout/Layout'
 import ExtensionGrid from '../extCommon/ExtensionGrid'
-import makeTypesActionsReducer from '../api/makeTypesActionsReducer'
-import { fetchItems } from '../api'
 import { getQueryParams, buildQueryString } from '../utils/url'
+import * as actions from './LoadMoreActions'
 import './ext-browse.css'
-
-const { actions, reducer } = makeTypesActionsReducer('EXT/BROWSE', fetchItems)
-export { reducer }
 
 const sortingOptions = {
   newest_first: {
@@ -76,8 +72,12 @@ class Browse extends Component {
     this.setState({ loadedForQuery: newQuery })
   }
 
+  onLoadMore() {
+    alert(1)
+  }
+
   render() {
-    const { error, fetching, payload, history } = this.props
+    const { error, fetching, payload, history, actions } = this.props
     const items = payload && payload.data
     const query = getQueryParams(history.location.search)
 
@@ -111,7 +111,13 @@ class Browse extends Component {
           </FormControl>
         </div>
 
-        <ExtensionGrid error={error} isFetching={fetching} items={items} />
+        <ExtensionGrid
+          error={error}
+          isFetching={fetching}
+          onLoadMore={actions.onLoadMore}
+          showLoadMore={true}
+          items={items}
+        />
       </Layout>
     )
   }
