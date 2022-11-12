@@ -14,7 +14,7 @@ class About extends Component {
 
         <IboxContent title="About Ulauncher Extensions">
           <h2>How to Use Them?</h2>
-          <p>Open Ulauncher Preferences and click "Add Extension" link</p>
+          <p>Open Ulauncher Preferences and click "Add Extension" link:</p>
           <p>
             <img src={extPrefs} width="100%" alt="Ulauncher Preferences" />
           </p>
