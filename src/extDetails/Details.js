@@ -102,7 +102,12 @@ export class Details extends Component {
                     <FormGroup>
                       <InputGroup>
                         <InputGroup.Button>
-                          <Button bsStyle="primary" title="Copy to clipboard" onClick={this.copyUrl}>
+                          <Button
+                            bsStyle="primary"
+                            title="Copy to clipboard"
+                            onClick={this.copyUrl}
+                            data-umami-event="copy-url"
+                          >
                             <i className="fa fa-clipboard" />
                           </Button>
                           {this.state.urlCopied && (
@@ -111,7 +116,7 @@ export class Details extends Component {
                             </Tooltip>
                           )}
                         </InputGroup.Button>
-                        <FormControl type="text" defaultValue={item.GithubUrl} />
+                        <FormControl type="text" defaultValue={item.GithubUrl} data-umami-event="select-url" />
                       </InputGroup>
                     </FormGroup>
 
