@@ -107,6 +107,7 @@ export class Details extends Component {
                             title="Copy to clipboard"
                             onClick={this.copyUrl}
                             data-umami-event="copy-url"
+                            data-umami-event-extid={this.props.match.params.id}
                           >
                             <i className="fa fa-clipboard" />
                           </Button>
@@ -116,7 +117,12 @@ export class Details extends Component {
                             </Tooltip>
                           )}
                         </InputGroup.Button>
-                        <FormControl type="text" defaultValue={item.GithubUrl} data-umami-event="select-url" />
+                        <FormControl
+                          type="text"
+                          defaultValue={item.GithubUrl}
+                          data-umami-event="select-url"
+                          data-umami-event-extid={this.props.match.params.id}
+                        />
                       </InputGroup>
                     </FormGroup>
 

@@ -42,7 +42,7 @@ export class ExtensionGrid extends React.Component {
               <div key={item.ID} className="col-md-4">
                 <div className="ibox">
                   <div className="ibox-content product-box">
-                    <Link to={link(item)} data-umami-event="view-extension">
+                    <Link to={link(item)} data-umami-event="view-extension" data-umami-event-extid={item.ID}>
                       <div className="product-imitation">
                         <img alt="Screen shot" src={item.Images[0]} />
                       </div>
