@@ -49,7 +49,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ validateExtensionUrl }, dispatch)
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Step1)
+export default connect(mapStateToProps, mapDispatchToProps)(Step1)

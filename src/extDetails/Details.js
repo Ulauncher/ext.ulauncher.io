@@ -174,9 +174,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 })
 
-export default withComments(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Details)
-)
+export default withComments(connect(mapStateToProps, mapDispatchToProps)(Details))

@@ -69,10 +69,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ login, logout }, dispatch)
 })
 
-export default compose(
-  withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
-)(Navigation)
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(Navigation)
