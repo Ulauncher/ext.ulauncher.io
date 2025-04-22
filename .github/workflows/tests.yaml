@@ -15,7 +15,7 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: "10.x.x"
+          node-version: "22.x.x"
       - name: Install dependencies
         run: |
           npm i -g yarn@1.x.x
