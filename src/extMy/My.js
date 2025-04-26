@@ -63,4 +63,9 @@ const mapDispatchToProps = dispatch => ({
   toastr: bindActionCreators(toastrActions, dispatch)
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(My))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(My)
+)

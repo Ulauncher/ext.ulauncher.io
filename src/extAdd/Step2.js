@@ -94,4 +94,9 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({ stepBack, submitExtension }, dispatch)
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Step2))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Step2)
+)
