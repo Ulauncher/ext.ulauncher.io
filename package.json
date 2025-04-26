@@ -49,6 +49,9 @@
     "prettier": "prettier --write 'src/**/*.js'",
     "check-formatting": "prettier --list-different 'src/**/*.js'"
   },
+  "resolutions": {
+    "idtoken-verifier": "1.1.0"
+  },
   "devDependencies": {
     "local-cors-proxy": "^1.1.0",
     "prettier": "^1.17.0",
