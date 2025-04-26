@@ -2,8 +2,8 @@
   "name": "ulauncher-extensions",
   "version": "1.0.0",
   "private": true,
-  "engines" : {
-    "node" : "8.x.x",
+  "engines": {
+    "node": "22.x.x",
     "yarn": "1.x.x"
   },
   "dependencies": {
@@ -42,12 +42,15 @@
     "start": "HOST=0.0.0.0 BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "docker": "docker run --rm -it --name extui -v $PWD:/app -e REACT_APP_API_BASE_URL=http://localhost:4000/proxy -p 3000:3000 -p 4000:4000 node:10 bash",
+    "local-api-proxy": "lcp --proxyUrl https://ext-api.ulauncher.io --port 4000",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
     "prettier": "prettier --write 'src/**/*.js'",
     "check-formatting": "prettier --list-different 'src/**/*.js'"
   },
   "devDependencies": {
+    "local-cors-proxy": "^1.1.0",
     "prettier": "^1.17.0",
     "shelljs": "^0.8.3",
     "source-map-explorer": "^1.4.0",
