@@ -54,8 +54,8 @@ class Browse extends Component {
 
   onAPIVersionSelect(event) {
     const currentOptions = this.getRequestOptions()
-    const newOptions = { ...currentOptions, api_version: event.target.value }
-    const newQuery = `?${this.buildBrowserQueryString({ api_version: event.target.value })}`
+    const newOptions = { ...currentOptions, versions: event.target.value }
+    const newQuery = `?${this.buildBrowserQueryString({ versions: event.target.value })}`
     this.props.history.push(`/${newQuery}`)
     this.props.actions.httpRequest(newOptions)
     this.setState({ loadedForQuery: newQuery })
@@ -90,7 +90,7 @@ class Browse extends Component {
         <div className="ext-filters">
           <div className="filter-label">Compatibility</div>
           <FormControl
-            defaultValue={query.api_version === undefined ? '2.0.0' : query.api_version}
+            defaultValue={query.versions === undefined ? '2' : query.versions}
             onChange={this.onAPIVersionSelect}
             className="version-filter"
             componentClass="select"
@@ -119,8 +119,8 @@ class Browse extends Component {
   buildBrowserQueryString(overrides) {
     const browserQuery = getQueryParams(this.props.history.location.search)
     const queryObject = {}
-    if (browserQuery.api_version !== undefined) {
-      queryObject.api_version = browserQuery.api_version
+    if (browserQuery.versions !== undefined) {
+      queryObject.versions = browserQuery.versions
     }
     if (browserQuery.sorting !== undefined) {
       queryObject.sorting = browserQuery.sorting
@@ -131,8 +131,8 @@ class Browse extends Component {
   getRequestOptions(queryString) {
     const browserQuery = getQueryParams(queryString || this.props.history.location.search)
     const options = {}
-    if (browserQuery.api_version !== undefined) {
-      options.api_version = browserQuery.api_version
+    if (browserQuery.versions !== undefined) {
+      options.versions = browserQuery.versions
     }
 
     const selectedSortingOption = sortingOptions[browserQuery.sorting] || sortingOptions.newest_first
