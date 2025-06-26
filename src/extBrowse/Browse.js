@@ -88,15 +88,15 @@ class Browse extends Component {
         </Helmet>
 
         <div className="ext-filters">
-          <div className="filter-label">Extension API version</div>
+          <div className="filter-label">Compatibility</div>
           <FormControl
             defaultValue={query.api_version === undefined ? '2.0.0' : query.api_version}
             onChange={this.onAPIVersionSelect}
             className="version-filter"
             componentClass="select"
           >
-            <option value="2.0.0">v2.0.0 (Ulauncher v5)</option>
-            <option value="1.0.0">v1.0.0 (Ulauncher v4)</option>
+            <option value="2">Ulauncher v5 (API v2)</option>
+            <option value="3">Ulauncher v6 (API v2 & v3)</option>
             <option value="">Any</option>
           </FormControl>
           <div className="sort-label">Sort by</div>
