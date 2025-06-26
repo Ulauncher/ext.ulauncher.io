@@ -96,7 +96,7 @@ class Browse extends Component {
             componentClass="select"
           >
             <option value="2">Ulauncher v5 (API v2)</option>
-            <option value="3">Ulauncher v6 (API v2 & v3)</option>
+            <option value="2,3">Ulauncher v6 (API v2 & v3)</option>
             <option value="">Any</option>
           </FormControl>
           <div className="sort-label">Sort by</div>
