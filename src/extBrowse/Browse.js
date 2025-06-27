@@ -25,40 +25,73 @@ const sortingOptions = {
   }
 }
 
+const ITEMS_PER_PAGE = 9 // 3x3 grid
+
 class Browse extends Component {
   constructor(props) {
     super(props)
     this.onAPIVersionSelect = this.onAPIVersionSelect.bind(this)
     this.onSortingSelect = this.onSortingSelect.bind(this)
+    this.loadMore = this.loadMore.bind(this)
     this.state = {
-      loadedForQuery: props.history.location.search
+      loadedForQuery: props.history.location.search,
+      offset: 0,
+      items: []
     }
   }
 
   componentDidMount() {
     const { history, actions, payload } = this.props
     if (history.action !== 'POP' || !payload) {
-      actions.httpRequest(this.getRequestOptions())
-      this.setState({ loadedForQuery: history.location.search })
+      const options = this.getRequestOptions()
+      actions.httpRequest(options)
+      this.setState({
+        loadedForQuery: history.location.search,
+        offset: 0,
+        items: []
+      })
+    } else if (payload && payload.data) {
+      this.setState({ items: payload.data })
     }
   }
 
   componentWillReceiveProps(newProps) {
-    const { history, actions } = newProps
+    const { history, actions, payload } = newProps
     if (history.location.search !== this.state.loadedForQuery) {
       const options = this.getRequestOptions(history.location.search)
       actions.httpRequest(options)
-      this.setState({ loadedForQuery: history.location.search })
+      this.setState({
+        loadedForQuery: history.location.search,
+        offset: 0,
+        items: []
+      })
+    } else if (payload && payload.data && this.props.fetching && !newProps.fetching) {
+      // When new data is loaded
+      if (this.state.offset === 0) {
+        // First load or filter/sort change
+        this.setState({ items: payload.data })
+      } else {
+        // Append items for "load more"
+        this.setState({ items: [...this.state.items, ...payload.data] })
+      }
     }
   }
 
   onAPIVersionSelect(event) {
     const currentOptions = this.getRequestOptions()
-    const newOptions = { ...currentOptions, versions: event.target.value }
+    const newOptions = {
+      ...currentOptions,
+      versions: event.target.value,
+      offset: 0
+    }
     const newQuery = `?${this.buildBrowserQueryString({ versions: event.target.value })}`
     this.props.history.push(`/${newQuery}`)
     this.props.actions.httpRequest(newOptions)
-    this.setState({ loadedForQuery: newQuery })
+    this.setState({
+      loadedForQuery: newQuery,
+      offset: 0,
+      items: []
+    })
   }
 
   onSortingSelect(event) {
@@ -68,18 +101,36 @@ class Browse extends Component {
     const newOptions = {
       ...currentOptions,
       sort_by: selectedSortingOption.sort_by,
-      sort_order: selectedSortingOption.sort_order
+      sort_order: selectedSortingOption.sort_order,
+      offset: 0
     }
     const newQuery = `?${this.buildBrowserQueryString({ sorting: event.target.value })}`
     this.props.history.push(`/${newQuery}`)
     this.props.actions.httpRequest(newOptions)
-    this.setState({ loadedForQuery: newQuery })
+    this.setState({
+      loadedForQuery: newQuery,
+      offset: 0,
+      items: []
+    })
+  }
+
+  loadMore() {
+    const newOffset = this.state.offset + ITEMS_PER_PAGE
+    const currentOptions = this.getRequestOptions()
+    const newOptions = {
+      ...currentOptions,
+      offset: newOffset,
+      limit: ITEMS_PER_PAGE
+    }
+    this.props.actions.httpRequest(newOptions)
+    this.setState({ offset: newOffset })
   }
 
   render() {
     const { error, fetching, payload, history } = this.props
-    const items = payload && payload.data
+    const { items } = this.state
     const query = getQueryParams(history.location.search)
+    const hasMoreItems = payload && payload.data && payload.data.length === ITEMS_PER_PAGE
 
     return (
       <Layout>
@@ -101,7 +152,7 @@ class Browse extends Component {
           </FormControl>
           <div className="sort-label">Sort by</div>
           <FormControl
-            defaultValue={query.sorting === undefined ? sortingOptions.newest_first : query.sorting}
+            defaultValue={query.sorting === undefined ? 'newest_first' : query.sorting}
             onChange={this.onSortingSelect}
             className="sorting-select"
             componentClass="select"
@@ -111,7 +162,23 @@ class Browse extends Component {
           </FormControl>
         </div>
 
-        <ExtensionGrid error={error} isFetching={fetching} items={items} />
+        <ExtensionGrid error={error} isFetching={fetching} items={items} showLoadMore={false} />
+
+        {hasMoreItems && (
+          <div className="text-center m-b">
+            <button type="button" className="btn btn-primary" onClick={this.loadMore} disabled={fetching}>
+              {fetching ? (
+                <span>
+                  <i className="fa fa-spinner fa-spin" /> Loading...
+                </span>
+              ) : (
+                <span>
+                  <i className="fa fa-refresh" /> Show more
+                </span>
+              )}
+            </button>
+          </div>
+        )}
       </Layout>
     )
   }
@@ -138,6 +205,11 @@ class Browse extends Component {
     const selectedSortingOption = sortingOptions[browserQuery.sorting] || sortingOptions.newest_first
     options.sort_by = selectedSortingOption.sort_by
     options.sort_order = selectedSortingOption.sort_order
+
+    // Add pagination parameters
+    options.offset = this.state ? this.state.offset : 0
+    options.limit = ITEMS_PER_PAGE
+
     return options
   }
 }
