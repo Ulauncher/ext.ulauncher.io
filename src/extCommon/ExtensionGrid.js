@@ -5,9 +5,9 @@ import IboxContent from '../layout/IboxContent'
 
 export class ExtensionGrid extends React.Component {
   render() {
-    const { error, isFetching, items, showLoadMore, currentUser } = this.props
+    const { error, isFetching, items, showLoadMore, currentUser, isLoadingMore } = this.props
 
-    if (isFetching) {
+    if (isFetching && !isLoadingMore) {
       return (
         <div className="sk-spinner sk-spinner-double-bounce">
           <div className="sk-double-bounce1" />

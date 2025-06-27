@@ -162,7 +162,13 @@ class Browse extends Component {
           </FormControl>
         </div>
 
-        <ExtensionGrid error={error} isFetching={fetching} items={items} showLoadMore={false} />
+        <ExtensionGrid
+          error={error}
+          isFetching={fetching}
+          items={items}
+          showLoadMore={false}
+          isLoadingMore={this.state.offset > 0 && fetching}
+        />
 
         {hasMoreItems && (
           <div className="text-center m-b">

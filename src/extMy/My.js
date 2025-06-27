@@ -47,7 +47,7 @@ class My extends Component {
         {items && items.length === 0 ? (
           <IboxContent title="No extensions :(">You haven't submitted any extensions yet.</IboxContent>
         ) : (
-          <ExtensionGrid error={error} isFetching={fetching} items={items} />
+          <ExtensionGrid error={error} isFetching={fetching} items={items} isLoadingMore={false} />
         )}
       </Layout>
     )
