@@ -25,7 +25,7 @@ const sortingOptions = {
   }
 }
 
-const ITEMS_PER_PAGE = 9 // 3x3 grid
+const ITEMS_PER_PAGE = 54
 
 class Browse extends Component {
   constructor(props) {
