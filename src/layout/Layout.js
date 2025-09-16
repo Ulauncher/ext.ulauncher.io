@@ -15,7 +15,7 @@ class Layout extends React.Component {
             <body className="top-navigation body-small" />
           </Helmet>
 
-          <div className="row border-bottom white-bg">
+          <div className="row border-bottom white-bg navigation-row">
             <Navigation />
           </div>
 

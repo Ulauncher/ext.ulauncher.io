@@ -29,10 +29,9 @@ export const Navigation = ({ isLoggedIn, githubName, actions, history }) => (
         </NavLink>
         <NavLink to="/new">Submit New</NavLink>
         <NavLink exact to="/about">
-          About Extensions
+          About
         </NavLink>
-        <NavItem href="http://docs.ulauncher.io">API Docs</NavItem>
-        <NavItem href="https://ulauncher.io">Ulauncher App</NavItem>
+        <NavItem href="https://ulauncher.io">Get App</NavItem>
       </Nav>
       <Nav pullRight>
         {isLoggedIn ? (

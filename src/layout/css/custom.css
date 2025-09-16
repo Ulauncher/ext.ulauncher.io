@@ -134,19 +134,72 @@ form .btn {
 /**
  * This is to override styles caused by .navbar-default
  */
+.white-bg.navigation-row {
+    background: linear-gradient(120deg, #10b58c 0%, #0d90b7 100%);
+    box-shadow: 0 6px 18px rgba(10, 67, 91, 0.18);
+}
+.navigation-row .navbar {
+    background: transparent;
+    border: none;
+}
 .top-navigation .navbar-brand {
-    background: #1ab394 !important;
+    background: transparent;
     color: #fff !important;
     padding: 15px 25px;
 }
 .navbar-default .navbar-nav > li a {
-    background-color: white !important;
+    background-color: transparent !important;
 }
-.navbar-default .navbar-toggle {
-    background-color: #1ab394 !important;
+.navigation-row .nav > li > a {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
-.navbar-default .navbar-toggle {
+.navigation-row .nav > li {
+    margin: 0 4px;
+}
+.navigation-row .nav > li > a {
+    border-radius: 6px;
+    border-bottom: 3px solid transparent;
+}
+.navigation-row .nav > li > a:hover,
+.navigation-row .nav > li > a:focus {
+    background-color: rgba(255, 255, 255, 0.14) !important;
+    color: #fff !important;
+}
+.navigation-row .nav > li.active {
+    background-color: transparent !important;
+}
+.navigation-row .nav > li.active > a,
+.navigation-row .nav > li.active > a:hover,
+.navigation-row .nav > li.active > a:focus {
+    background: none !important;
+    color: #fff !important;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.navigation-row .nav .open > a,
+.navigation-row .nav .open > a:hover,
+.navigation-row .nav .open > a:focus {
+    background-color: rgba(255, 255, 255, 0.16) !important;
+    color: #fff !important;
+}
+.navigation-row .navbar-toggle {
+    background-color: rgba(255, 255, 255, 0.22) !important;
     border-color: transparent !important;
+    color: #fff !important;
+}
+.navigation-row .navbar-toggle:hover,
+.navigation-row .navbar-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.32) !important;
+}
+.gray-bg {
+    background-color: #f5f6f7;
+    background-image: linear-gradient(180deg, #fafbfc 0%, #f1f2f4 55%, #e9ebed 100%);
+    background-repeat: no-repeat;
+}
+.gray-bg .wrapper.wrapper-content {
+    background: transparent;
 }
 .ellipsis {
     white-space: nowrap;

@@ -25,6 +25,16 @@ class About extends Component {
             When you run Ulauncher it starts all available extensions so they are ready to react to user events. All
             extensions are terminated when Ulauncher app is closed or crashed.
           </p>
+
+          <h2>Want to Build Your Own?</h2>
+          <p>
+            Interested in creating extensions? Visit the
+            <a href="http://docs.ulauncher.io/" target="_blank" rel="noopener noreferrer">
+              {' '}
+              official extension documentation
+            </a>
+            to follow guides and best practices.
+          </p>
         </IboxContent>
       </Layout>
     )
