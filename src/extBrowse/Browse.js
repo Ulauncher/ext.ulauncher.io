@@ -204,7 +204,7 @@ class Browse extends Component {
               <span className="ext-filter-label">Sort by</span>
               {isSearchActive ? (
                 <span className="ext-relevance-badge">
-                  <i className="fa fa-sort-amount-asc" /> Relevance
+                  <i className="fa fa-bullseye" /> Relevance
                 </span>
               ) : (
                 <select
